@@ -100,12 +100,17 @@ WHY
 
 \begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Enumerate
 problem
 \end_layout
 
+\begin_layout Enumerate
+areas of improvement
+\end_layout
+
+\begin_deeper
 \begin_layout Enumerate
 time to recovery high (avg shifter reaction time) downtime
 \begin_inset Separator latexpar
@@ -114,7 +119,6 @@ time to recovery high (avg shifter reaction time) downtime
 
 \end_layout
 
-\begin_deeper
 \begin_layout Enumerate
 human error when downtime
 \begin_inset Separator latexpar
@@ -450,7 +454,24 @@ There is much to learn from months of operation.
 \end_layout
 
 \begin_layout Subsection
-DAQExpert in action
+Project in action
+\end_layout
+
+\begin_layout Standard
+Current version of the project (2.9.0) is able to fulfill all of the requirements
+ defined above.
+ It helps shifters to take right decisions, reducing both reaction time
+ and need of external human expert help.
+ So called snapshots of the whole systems are persisted enabling easier
+ post mortem analysis and generation of useful statistics.
+\end_layout
+
+\begin_layout Paragraph
+Online operator help
+\end_layout
+
+\begin_layout Standard
+Operator of the DAQ system at CMS m
 \end_layout
 
 \end_body
