@@ -1,0 +1,97 @@
+#LyX 1.6.10 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass paper
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Paragraph
+
+\end_layout
+
+\begin_layout Section*
+Abstract
+\end_layout
+
+\begin_layout Standard
+The efficiency of the Data Acquisition (DAQ) in the new DAQ system of the
+ Compact Muon Solenoid (CMS) experiment for LHC Run-2 is constantly being
+ improved.
+ A significant factor on the data taking efficiency is the experience of
+ the DAQ operator.
+ One of the main responsibilities of DAQ operator is to carry out the proper
+ recovery procedure in case of failure in data-taking.
+ At the start of Run-2, understanding the problem and finding the right
+ remedy could take a considerable amount of time, sometimes up to minutes.
+ This was caused by the need to manually diagnose the error condition and
+ to find the right recovery procedure out of an extended list which changed
+ frequently over time.
+ Operators heavily relied on the support of on-call experts, also outside
+ working hours.
+ Wrong decisions due to time pressure sometimes lead to an additional overhead
+ in recovery time.
+\end_layout
+
+\begin_layout Standard
+To increase the efficiency of CMS data-taking we developed a new expert
+ system, the DAQExpert which provides shifters with optimal recovery suggestions
+ instantly when the failure occurs.
+ This tool significantly improves the response time of operators and the
+ success rate of recovery procedures.
+ Our goal is to cover all known failure conditions and to eventually trigger
+ the recovery without human intervention wherever possible.
+ This paper covers how we achieved two goals - making CMS more efficient
+ and building a generic solution that can be used in other projects as well.
+ More specifically we discuss how we: determine the optimal recovery suggestion,
+ inject expert knowledge with minimum overhead, facilitate post-mortem analysis
+ and reduce the amount of calls to on-call experts without deterioration
+ of CMS efficiency.
+ DAQExpert is a web application analyzing frequently updating monitoring
+ data from all DAQ components and identifying problems based on expert knowledge
+ expressed in small, independent logic-modules written in Java.
+ Its results are presented in real-time in the control room via a web-based
+ GUI and a sound-system in a form of short description of the current failure,
+ and steps to recover.
+ Additional features include SMS and e-mail notifications and statistical
+ analysis based on reasoning output persisted in a relational database.
+\end_layout
+
+\end_body
+\end_document

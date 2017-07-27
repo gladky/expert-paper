@@ -1,0 +1,281 @@
+#LyX 1.6.10 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass paper
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Enumerate
+Introduction - the beggining should briefly descrbe the problem and should
+ dazzle with its charm, the wow effect should be as soon as possible, This
+ chapter should answer 
+\begin_inset Quotes eld
+\end_inset
+
+WHY
+\begin_inset Quotes erd
+\end_inset
+
+ we do this project
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Enumerate
+problem
+\end_layout
+
+\begin_layout Enumerate
+time to recovery high (avg shifter reaction time) downtime
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+human error when downtime
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+stresful = likely to make wroong decisions
+\end_layout
+
+\begin_layout Enumerate
+overhead in recovery time
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+experts are woken up in the night
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+for trivial problems
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+expert in action (solution)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+use cases
+\end_layout
+
+\begin_layout Enumerate
+how the result are delivered (hints aka recovery suggestion for shifters)
+\end_layout
+
+\begin_layout Enumerate
+facilitate post mortem analysis
+\end_layout
+
+\end_deeper
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Demanding task for operators
+\end_layout
+
+\begin_layout Standard
+Being able to act within seconds during operations of LHC is one of the
+ challanges of operator.
+ It's a demanding responsibility that may be stresful for some people.
+ DAQ system is a complex system therefore there are tools to automate certain
+ oparations, e.g.
+ staring the run, stopping, ressetin, resyncing etc.
+ This facilitates the actions initiated by operators, however, it's not
+ uncommon that the system goes into erronous state where deeper understanding
+ of the system is required to overcome the problem in the optimal way.
+ Experts of a given subsystems prepare instructions for operators for specific
+ problems.
+ These are recovery instructions needed to resume the data-taking as soon
+ as possible.
+ There is no need for operators to learn insights of all subsystems nor
+ to understand the problem.
+ They need to overcome it and make sure the operations of CMS go smoothlyy.
+ 
+\end_layout
+
+\begin_layout Standard
+Over a time the list of recovery instruction grew.
+ Even though it's prepared by experts in easy form of checklist helping
+ to identify the problem it takes considerable amount of time to find the
+ correct one.
+ The reaction time of the operator increased as it was difficult to remember
+ all of them.
+ Wrong or suboptimal decision were not uncommon as well.
+ This lead to increased recovery time.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Breakdown-of-downtime"
+
+\end_inset
+
+ presents breakdown of deadtime to reaction time (time between problem occurence
+ and recovery action taken) and recovery time (time between recovery action
+ start and end).
+ Reducing both reaction time and choosing correct optimal recovery action
+ are the two areas for improvement.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/chart.png
+	width 100line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Breakdown-of-downtime"
+
+\end_inset
+
+Breakdown of downtime (data from 2016-11-01 to 2016-11-30)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Areas of improvement
+\end_layout
+
+\begin_layout Standard
+As shown on figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Breakdown-of-downtime"
+
+\end_inset
+
+, the time spent on recovery, is the main contributor to overal downtime
+ of CMS.
+ Therefore its essential to choose the quickest set of actions needed to
+ bring the system back to operation.
+ Many different recovery procedures may be distinguished, for example:
+\end_layout
+
+\begin_layout Itemize
+stop the run and start
+\end_layout
+
+\begin_layout Itemize
+reconfigure specific subsystem
+\end_layout
+
+\begin_layout Itemize
+red and green recycle
+\end_layout
+
+\begin_layout Itemize
+resync
+\end_layout
+
+\begin_layout Itemize
+restart
+\end_layout
+
+\begin_layout Standard
+They differ significantly in terms of impact they have on system and how
+ much time they take to complete.
+ One of the habits we've observed is issuing the most versatile recovery
+ action when unnecesary.
+ The operator on one hand can issue general-purpose, heavy recovery action
+ and be sure that it will fix the problem.
+ On the other hand they can try to find out some light highly-specific to
+ given circumstances action.
+ It might be less stressful to follow the first way.
+ In the latter case the problem needs to be correctly identified to be successfu
+l.
+\end_layout
+
+\begin_layout Subsection
+DAQExpertt in action
+\end_layout
+
+\end_body
+\end_document
