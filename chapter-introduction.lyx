@@ -472,7 +472,14 @@ Online operator help
 
 \begin_layout Standard
 Operators of the DAQ system at CMS have now at theirs disposal a tool delivering
- recovery action suggestions in the real-time.
+ recovery action suggestions in the real-time - Dashboard (see figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dashboard-tool--"
+
+\end_inset
+
+).
  Whenever the problem occurs the tool is showing the description of the
  problem na optimal recovery action suggestion.
 \end_layout
@@ -497,8 +504,16 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Dashboard-tool--"
+
+\end_inset
+
 Dashboard tool - one of the identified problems and suggested recovery action
- to take
+ to take.
+ This is reduced version of Dashboard tool, some information is not shown
+ here for clarity.
 \end_layout
 
 \end_inset
@@ -516,8 +531,8 @@ Dashboard tool - one of the identified problems and suggested recovery action
 \end_layout
 
 \begin_layout Standard
-This helps both with reducing reaction time and avoiding suboptimal recovery
- actions.
+This helps with reducing reaction time avoiding suboptimal recovery actions
+ and minimizing the need of external help.
 \end_layout
 
 \begin_layout Paragraph
@@ -525,9 +540,155 @@ Offline post mortem support
 \end_layout
 
 \begin_layout Standard
-Human DAQ experts who want to analyze the problem after solving it have
- at their disposal new tool Browser.
+To analyze the problem afterwards human DAQ experts have at their disposal
+ new tool - Browser (see figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Browser-tool-showing"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Browser-tool-showing-1"
+
+\end_inset
+
+) .
+ It presents state transitions of different components and states of the
+ analysis in time.
+ It consists of two parts, timeline with aforementioned states and chart
+ with key parameters plotted.
+ One can browse through time zooming and going backward and forward in time.
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/browser-zoom-in.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Browser-tool-showing-1"
+
+\end_inset
+
+Browser tool showing 30 second time frame.
+ Note the problem identified and drawn on the timeline, FED stuck, and the
+ state transitions of DAQ components: level-zero (L0), TCDS afterwards.
+ Bottom chart - Average Readout-Unit rate (blue) and cumulated events assembled
+ in Builder-Units (orange).
+ The rate drops to 0 for ~20 seconds when problem occurred.
+ This is reduced version of Browser tool, some information is was not shown
+ here for clarity.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/browser-zoom-out.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Browser-tool-showing"
+
+\end_inset
+
+Browser tool showing whole fill of LHC, stable beams lasting for 8h highlighted
+ at the top.
+ Note many transitions of the system in the upper part of the screenshot.
+ Bottom chart - Average Readout-Unit rate (blue) and cumulated events assembled
+ in Builder-Units (orange).
+ This is reduced version of Browser tool, some information is was not shown
+ here for clarity.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Statistics
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistics - breakdown of downtime to causing problems
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
