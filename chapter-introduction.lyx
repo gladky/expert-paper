@@ -26,6 +26,7 @@
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement t
 \paperfontsize default
 \spacing single
 \use_hyperref false
@@ -661,12 +662,39 @@ Statistics
 \end_layout
 
 \begin_layout Standard
+There is a tool dedicated for reporting purposes.
+ Based on persisted reasoning data the statistics are generated.
+ Figures 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Statistics---breakdown-causing-problem"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Statistics---breakdown-causing-subsystem"
+
+\end_inset
+
+ present accordingly breakdown of downtime per causing problem and per causing
+ subsystem.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/statistics-problems.png
+	width 100text%
+
+\end_inset
+
 
 \end_layout
 
@@ -674,6 +702,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Statistics---breakdown-causing-problem"
+
+\end_inset
+
 Statistics - breakdown of downtime to causing problems
 \end_layout
 
@@ -683,6 +717,45 @@ Statistics - breakdown of downtime to causing problems
 \end_layout
 
 \begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/statistics-subsystems.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Statistics---breakdown-causing-subsystem"
+
+\end_inset
+
+Statistics - breakdown of downtime to causing subsystems
+\end_layout
+
+\end_inset
+
 
 \end_layout
 

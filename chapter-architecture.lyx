@@ -117,17 +117,13 @@ nature (webapplication)
 
 \end_layout
 
-\begin_deeper
 \begin_layout Enumerate
 Monitoring and aggregation (snapshot of system)
 \end_layout
 
 \begin_layout Enumerate
-finding optimal recovery suggestion, 
-\end_layout
-
-\begin_layout Enumerate
-dataflow & Processing & analysis (how the snapshot are processed)
+finding optimal recovery suggestion, &&dataflow & Processing & analysis
+ (how the snapshot are processed)
 \end_layout
 
 \begin_layout Enumerate
@@ -152,10 +148,57 @@ reports
 \end_layout
 
 \end_deeper
-\end_deeper
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Architecture
+\end_layout
+
+\begin_layout Standard
+The project has been organized in micro-service architecture.
+ There is a service that aggregates all monitoring information into one
+ snapshot, a service that applies our knowledge on the snapshots, a service
+ that deliveres suggestions to chontrol room, a service for browsing whole
+ history of monitoring data for post-mortem analysis and a service managing
+ the notifications.
+\end_layout
+
+\begin_layout Subsection
+Monitoring and aggregation
+\end_layout
+
+\begin_layout Standard
+There are multiple sources of monitoring information enabling access either
+ offline or online.
+ The information varies in frequency of updates and type of API available
+ to access it.
+ To enable reasoning in a real time the easy access to any information needs
+ to be assured.
+ The first step was to aggreagate the information into so-called snapshots.
+ Definition of snapshots.
+\end_layout
+
+\begin_layout Subsection
+Dataflow
+\end_layout
+
+\begin_layout Standard
+From accessing the monitoring data, aggregation, persisten, processing,
+ using expert knowledge to delivering suggestion and creating notifiaction.
+ The whole data flow will be presented here.
+\end_layout
+
+\begin_layout Subsection
+Tools
+\end_layout
+
+\begin_layout Standard
+Insights and challanges of key tools of the project will be presented here.
+ Low latency in dashboard for better reaction time, easy access to all levels
+ of monitoring data for post mortem analysis, notifications and reports.
 \end_layout
 
 \end_body

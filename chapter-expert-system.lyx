@@ -157,5 +157,54 @@ post mortem-analysis
 
 \end_layout
 
+\begin_layout Standard
+There were specific external forces that influenced the design of the project
+ and technologies used.
+ Specifically no rule-based engine framework has been used to implement
+ reasoning and define expert knowledge.
+ Moreover multiple the use cases and target user groups has to be taken
+ into acount.
+ As a result the solution has been implemented as a set of web applications
+ in a microservice architecture.
+\end_layout
+
+\begin_layout Subsection
+External forces
+\end_layout
+
+\begin_layout Standard
+Nonfunctional and functional requirements described here.
+ Specifically unwillingnes to learn additional language to define expert
+ knowledge.
+\end_layout
+
+\begin_layout Subsection
+Defining knowlegde
+\end_layout
+
+\begin_layout Standard
+Its common in the industry that expert knowledge is defined in declarative
+ language.
+ For instance in a form of rules if-then-else.
+ Introducing own framework of Logic-Modules.
+\end_layout
+
+\begin_layout Subsection
+Using knowledge
+\end_layout
+
+\begin_layout Standard
+Defined knowledge is used to find optimal solution when problem occurres
+ in dataflow.
+\end_layout
+
+\begin_layout Subsection
+Knowledge in use
+\end_layout
+
+\begin_layout Standard
+Examples of Logic-Modules implemented in the project.
+\end_layout
+
 \end_body
 \end_document

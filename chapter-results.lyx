@@ -93,7 +93,7 @@ Results (value added by solution) - this should describe if the project
 
 \begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Enumerate
 higher efficiency
@@ -134,6 +134,62 @@ bypass the shifter
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+How much good does the project does.
+ Is the project already successful after one and a half years?
+\end_layout
+
+\begin_layout Subsection
+Selecting optimal recovery action
+\end_layout
+
+\begin_layout Standard
+This is definitely the best side of the project.
+ Comparison of contribution of suboptimal recovery actions in past few month,
+ before and after.
+\end_layout
+
+\begin_layout Subsection
+Reaction time
+\end_layout
+
+\begin_layout Standard
+This may not be the most challenging area to improve but definitely one
+ of the first to address.
+ Comparison of histograms here.
+\end_layout
+
+\begin_layout Subsection
+Minimizing external help
+\end_layout
+
+\begin_layout Standard
+This area is of great interest for on-call human experts as it has a potential
+ of limiting disadvantages of their obligatory shifts.
+ Normalized number of calls to on-call before and after will be presented.
+\end_layout
+
+\begin_layout Subsection
+Facilitating post mortem analysis
+\end_layout
+
+\begin_layout Standard
+Give example of a post mortem case.
+ What where experts looking for? Did the project facilitated the investigation?
+ Measurable parameters: how many services they have to reach to find the
+ data, is the data even available.
+\end_layout
+
+\begin_layout Subsection
+Statistics
+\end_layout
+
+\begin_layout Standard
+It's not the key feature of the project but it gives useful insights about
+ the system.
+ The data helps identifying the areas of system that needs more attention.
 \end_layout
 
 \end_body
