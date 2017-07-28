@@ -100,7 +100,7 @@ WHY
 
 \begin_layout Standard
 \begin_inset Note Note
-status open
+status collapsed
 
 \begin_layout Enumerate
 problem
@@ -471,7 +471,63 @@ Online operator help
 \end_layout
 
 \begin_layout Standard
-Operator of the DAQ system at CMS m
+Operators of the DAQ system at CMS have now at theirs disposal a tool delivering
+ recovery action suggestions in the real-time.
+ Whenever the problem occurs the tool is showing the description of the
+ problem na optimal recovery action suggestion.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/Dashboard-presentation.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Dashboard tool - one of the identified problems and suggested recovery action
+ to take
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This helps both with reducing reaction time and avoiding suboptimal recovery
+ actions.
+\end_layout
+
+\begin_layout Paragraph
+Offline post mortem support
+\end_layout
+
+\begin_layout Standard
+Human DAQ experts who want to analyze the problem after solving it have
+ at their disposal new tool Browser.
+ 
 \end_layout
 
 \end_body
