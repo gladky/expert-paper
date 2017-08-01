@@ -101,7 +101,7 @@ WHY
 
 \begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Enumerate
 problem
@@ -181,16 +181,16 @@ facilitate post mortem analysis
 \end_layout
 
 \begin_layout Subsection
-Demanding task for operators
+Operator's challanges
 \end_layout
 
 \begin_layout Standard
 Being able to act within seconds during operations of LHC is one of the
- challenges of operator.
+ challenges of the operator.
  It's a demanding responsibility that may be stressful for some people.
  DAQ system is a complex system therefore there are tools to automate certain
  operations, e.g.
- staring the run, stopping, reseting, resyncing etc.
+ staring the run, stopping, reseting, resyncing, configuring etc.
  Those tools facilitate the actions initiated by operators, however, it's
  not uncommon that the system goes into erroneous state where deeper understandi
 ng of the system is required to overcome the problem in the optimal way.
@@ -198,8 +198,7 @@ ng of the system is required to overcome the problem in the optimal way.
  problems.
  These are recovery instructions needed to resume the data-taking as soon
  as possible.
- There is no need for operators to learn insights of all subsystems nor
- to understand the problem.
+ There is no need for operators to fully understand the problem.
  They need to effectively overcome it and make sure the operations of CMS
  go smoothly.
  
@@ -212,7 +211,7 @@ Over a time the list of recovery instruction grew.
  to find the correct one when needed.
  The reaction time of the operator increased as it was difficult to remember
  all of them.
- Wrong or suboptimal decision were not uncommon as well.
+ Wrong or suboptimal decision were not uncommon as a result.
  This lead to increased recovery time.
  Figure 
 \begin_inset CommandInset ref
@@ -231,12 +230,25 @@ reference "fig:Breakdown-of-downtime"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
 \begin_inset Graphics
 	filename img/downtime-reaction-vs-recovery.png
-	width 100line%
+	width 75line%
 
 \end_inset
 
@@ -281,8 +293,9 @@ Reducing both reaction time and choosing correct optimal recovery action
  First is to facilitate the post mortem analysis for DAQ experts, another
  is to aggregate and to report statistical performance of the system and
  individual subsystem.
- Last but not least is to protect DAQ on-call good night sleep without deteriora
-tion of CMS efficiency.
+ Last but not least is to reduce the need of external help especially outside
+ of working hours and protect DAQ on-call good night sleep without deterioration
+ of CMS efficiency.
  
 \end_layout
 
@@ -331,13 +344,13 @@ They differ significantly in terms of impact they have on system and how
  Some of them take few seconds whereas other few minutes.
  One of the habits observed is issuing by the operator the most versatile
  recovery action for most problems.
- The operator on one hand can issue this general-purpose, heavy recovery
- action to be sure that it will fix the problem.
+ Note that the operator on one hand can issue this general-purpose, heavy
+ recovery action to be sure that it will fix the problem.
  On the other hand they can try to find out some light highly-specific to
  given circumstances action.
  It might be less stressful to follow the first solution.
- In the latter case the problem needs to be correctly identified which takes
- some time.
+ In the latter case the problem needs to be correctly identified which might
+ be not the trivial task and therefor takes some time.
  The aim o the project is to help operator choose optimal recovery action.
 \end_layout
 
@@ -364,7 +377,7 @@ reference "fig:histogram-of-reaction-time"
  The second most frequent reaction time was 5-10 seconds - 52 occurrences.
  Sometimes the reaction time was 0-5 seconds - 37 occurrences, and 15-20
  seconds 30 occurrences.
- The distribution between 20-150 seconds is quite flat.
+ The distribution between 20-150 seconds is roughly flat.
  There were rather rare cases of reaction 150-500 seconds.
  The aim of the project is to reduce the reaction time and as a result move
  the distribution to the left hand side.
@@ -419,8 +432,8 @@ In case the operators cannot fix the problem themselves they can always
  They are available 24/7.
  As much as they are helpful, they are not fans of night calls especially
  with trivial problems.
- Minimizing these calls outside of working hours without deterioration of
- CMS efficiency is one of the goals of the project.
+ Minimizing number of these calls especially outside of working hours without
+ deterioration of CMS efficiency is one of the goals of the project.
 \end_layout
 
 \begin_layout Paragraph
@@ -428,17 +441,17 @@ Facilitating post mortem analysis
 \end_layout
 
 \begin_layout Standard
-After the problem occurs and is addressed the lesson needs to be learn from
- it to avoid it in the future.
- Monitoring system facilitates the access to data of interest but not without
- the flaws.
+After the problem occurs and is addressed usually there is a lesson to be
+ learn from it to avoid similar problems in the future.
+ Monitoring systems (Live Access Service, Handsaw, Hardware Database, F3Mon)
+ facilitate the access to data of interest but not without the flaws.
  Some systems are offline and it's possible to access the data after the
  problem has been resolved.
- Some of them are online and to learn from the problem one needs to do it
- while the problem is ongoing.
+ Some of them are online and to learn from the problem one needs to access
+ themt while the problem is ongoing.
  This is not possible in time critical operations during stable beams.
- The aim of the project is to streamline the post mortem analysis to learn
- more from the problems and avoid them in the future.
+ The aim of the project is to streamline the post mortem analysis by making
+ all necesarry data available in one place anytime.
 \end_layout
 
 \begin_layout Paragraph
@@ -455,7 +468,7 @@ There is much to learn from months of operation.
 \end_layout
 
 \begin_layout Subsection
-Project in action
+Results at a glance
 \end_layout
 
 \begin_layout Standard
@@ -489,7 +502,7 @@ reference "fig:Dashboard-tool--"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -513,6 +526,8 @@ name "fig:Dashboard-tool--"
 
 Dashboard tool - one of the identified problems and suggested recovery action
  to take.
+ This tool is by default shown in CMS Control Room and is conndected to
+ sound system to attract attention.
  This is reduced version of Dashboard tool, some information is not shown
  here for clarity.
 \end_layout
@@ -557,10 +572,10 @@ reference "fig:Browser-tool-showing-1"
 \end_inset
 
 ) .
- It presents state transitions of different components and states of the
- analysis in time.
- It consists of two parts, timeline with aforementioned states and chart
- with key parameters plotted.
+ It consists of two parts, timeline with analysis results and chart with
+ key parameters plotted.
+ The former part presents transitions of different components and steps
+ of the analysis in time.
  One can browse through time zooming and going backward and forward in time.
  
 \end_layout
@@ -592,8 +607,9 @@ name "fig:Browser-tool-showing-1"
 \end_inset
 
 Browser tool showing 30 second time frame.
- Note the problem identified and drawn on the timeline, FED stuck, and the
- state transitions of DAQ components: level-zero (L0), TCDS afterwards.
+ Note the problem, FED stuck, identified and drawn on the timeline and the
+ state transitions of DAQ components issued to overcome the problem: level-zero
+ (L0), TCDS afterwards.
  Bottom chart - Average Readout-Unit rate (blue) and cumulated events assembled
  in Builder-Units (orange).
  The rate drops to 0 for ~20 seconds when problem occurred.
@@ -679,19 +695,32 @@ reference "fig:Statistics---breakdown-causing-subsystem"
 \end_inset
 
  present accordingly breakdown of downtime per causing problem and per causing
- subsystem.
+ subsystem generate by this tool.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
 \begin_inset Graphics
 	filename img/statistics-problems.png
-	width 100text%
+	width 75text%
 
 \end_inset
 
@@ -732,9 +761,22 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
 \begin_inset Graphics
 	filename img/statistics-subsystems.png
-	width 100text%
+	width 75text%
 
 \end_inset
 

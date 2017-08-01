@@ -173,9 +173,54 @@ External forces
 \end_layout
 
 \begin_layout Standard
-Nonfunctional and functional requirements described here.
- Specifically unwillingnes to learn additional language to define expert
- knowledge.
+It is highly likely that project's lifetime, like many other projects at
+ CERN, will be more than a decade.
+ Thus, one of the main requirements was to avoid highly specific solutions
+ that would make it difficult new team members quickly become productive.
+ The project will be maintained by differend people over time.
+ It needs to be easy to understand and modify requiring little effort to
+ learn.
+ Even though rule-based engines has been designed to be used by non-technical
+ people, allowing easy way to define logic this was not optimal way to go
+ in CMS DAQ group.
+ The programming skills are not the problem, introducing additional language
+ is not an option.
+ The solution needs to be kept as simple as possible.
+\end_layout
+
+\begin_layout Standard
+Moreover, the nature of the project forsees frequent logic-related updates
+ possibly introduced by different people.
+ If there is new recovery solution advised by sub-system experts the according
+ knowledge needs to be introduced to the system.
+ Finally the high availability needs to be maintained, as each downtime
+ system means no support for the operators.
+ 
+\end_layout
+
+\begin_layout Standard
+As a new expert framework has been designed from ground up.
+ It allows to define the knowledge in imperative language - Java.
+ The knowledge is organized in small independend Logic Modules.
+ This is a central part of the project.
+ All other features described in previous chapter has been delivered as
+ webservices organized in a microservice architecture.
+\end_layout
+
+\begin_layout Standard
+There are advantages of such approach - one being tailored to the needs
+ of the specific group - technical people knowing Java programming language,
+ having no problems in expressing their knowledge in imperative language.
+ Moreover the latency the analysis is low, knowledge is maintainable, organized
+ and easy to understand.
+ The solution gives high possibilities for subsystem experts without a need
+ to learn additional rule-based languages.
+\end_layout
+
+\begin_layout Standard
+There are drawback as well.
+ As this is a custom made solution there is no community.
+ In case of need there are authors and documentation only.
 \end_layout
 
 \begin_layout Subsection
@@ -185,8 +230,80 @@ Defining knowlegde
 \begin_layout Standard
 Its common in the industry that expert knowledge is defined in declarative
  language.
- For instance in a form of rules if-then-else.
- Introducing own framework of Logic-Modules.
+ For instance in a form of if-then-else rules.
+ As a result of external forces described in the previous paragraph this
+ way of defining knowledge has not been used.
+ The new custom made framework based on Logic-Modules has been introduced.
+ Logic Module (hereandafter LM) is a building block of DAQExpert expert
+ logic.
+ Each LM focuses on one thing: expressing piece of knowledge about DAQ system.
+ 
+\end_layout
+
+\begin_layout Itemize
+Each LM defines one condition 
+\end_layout
+
+\begin_layout Itemize
+The definition of condition is placed in satisfy method 
+\end_layout
+
+\begin_layout Itemize
+The method returns true if condition is satisfied and false otherwise 
+\end_layout
+
+\begin_layout Itemize
+One LM can use results of another LM
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/simple-logic-module.png
+	width 75text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Logic Module
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -196,6 +313,58 @@ Using knowledge
 \begin_layout Standard
 Defined knowledge is used to find optimal solution when problem occurres
  in dataflow.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/lm-hierarchy.jpg
+	width 75text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Logic Module hierarchy
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -204,6 +373,33 @@ Knowledge in use
 
 \begin_layout Standard
 Examples of Logic-Modules implemented in the project.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+sample logic module hierarchy
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Logic Module hierarchy used in CMS DAQ
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
