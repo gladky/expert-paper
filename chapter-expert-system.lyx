@@ -260,7 +260,7 @@ One LM can use results of another LM
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset ERT
@@ -311,9 +311,40 @@ Using knowledge
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 Defined knowledge is used to find optimal solution when problem occurres
  in dataflow.
- 
+ The set of LM is defined by DAQ experts.
+ To diagnose the problems in dataflow the snapshot of the system is taken.
+ It consists all necessary information to identify the problem.
+ LM operate on this snapshot and verifying if key parameters are in expected
+ states or in specified value ranges.
+ As LM may use outputs of other LMs there is predefined order of firing
+ them.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Subset-of-Logic"
+
+\end_inset
+
+ presents subset of LMs responsible for identifying one of many problems
+ that may occurr during datatakin - FED stuck.
+ There are five LMs and 3 parameters being monitored.
+ The LMs are fired in top-down order alowing LMs rely on others as arrows
+ indicate.
 \end_layout
 
 \begin_layout Standard
@@ -350,7 +381,14 @@ centering
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Logic Module hierarchy
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Subset-of-Logic"
+
+\end_inset
+
+Subset of Logic Module hierarchy, the hierarchy is incomplete and simplified
+ for the clarity
 \end_layout
 
 \end_inset
@@ -365,6 +403,44 @@ Logic Module hierarchy
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+LM may play two roles: it might be a substep of the analysis (expected-rate,
+ no-rate, no-rate-when-expected) and final step of the analysis (fed-stuck)
+ delivering description of the condition and recovery suggestion.
+ Finding optimal recovery to given condition in this hierarchy means that
+ the chain of LM was activated:
+\end_layout
+
+\begin_layout Itemize
+RunOngoing was active - means that there was a run started according to
+ TCDS and LevelZero,
+\end_layout
+
+\begin_layout Itemize
+NoRate - the summarized rate of FED was equal 0, there was no data flowing,
+\end_layout
+
+\begin_layout Itemize
+ExpectedRate - the states of subsystems TCDS and LevelZero indicate that
+ no recovery action is being issued right now, all subsystems are running
+ and the rate is expected to be non-zero, note that this LM is also checking
+ if there is currently a run ongoing using output of RunOngoing LM,
+\end_layout
+
+\begin_layout Itemize
+DataflowStuck - this summarizes outputs of two LMs: NoRate and ExpectedRate,
+ it's activated when two related LMs are active meaning that the dataflow
+ is stuck,
+\end_layout
+
+\begin_layout Itemize
+FED stuck - starts the analysis when there is DataflowStuck, it performs
+ specific checks that reveal the specific FED to be stuck, causing the dataflow
+ to be stuck, this LM identifies precisely the problem thus it consists
+ final instructions for the operator including detailed description of the
+ problem and recovery suggestion.
 \end_layout
 
 \begin_layout Subsection
@@ -372,34 +448,136 @@ Knowledge in use
 \end_layout
 
 \begin_layout Standard
-Examples of Logic-Modules implemented in the project.
+There are in total 19 LMs identifying the problem.
+ These are so called leaf-LM - the final LM's in the hierarchy.
+ Here are examples of LMs used nowadays to identify the problems in CMS
+ DAQ system:
+\end_layout
+
+\begin_layout Itemize
+Out of sequence data received
+\end_layout
+
+\begin_layout Itemize
+Corrupted data received
+\end_layout
+
+\begin_layout Itemize
+Partition problem
+\end_layout
+
+\begin_layout Itemize
+FED stuck
+\end_layout
+
+\begin_layout Itemize
+PI disconnected
+\end_layout
+
+\begin_layout Itemize
+PI problem
+\end_layout
+
+\begin_layout Itemize
+FED disconnected
+\end_layout
+
+\begin_layout Itemize
+FMM problem
+\end_layout
+
+\begin_layout Itemize
+Ferol FIFO stuck 
+\end_layout
+
+\begin_layout Itemize
+Link problem
+\end_layout
+
+\begin_layout Itemize
+RU stuck
+\end_layout
+
+\begin_layout Itemize
+HLT problem
 \end_layout
 
 \begin_layout Standard
-\begin_inset Float figure
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-sample logic module hierarchy
+Many other supporting LMs are used as well as indicated in previous paragraph:
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Logic Module hierarchy used in CMS DAQ
+\begin_layout Itemize
+NoRate
 \end_layout
 
-\end_inset
-
-
+\begin_layout Itemize
+ExpectedRate
 \end_layout
 
-\end_inset
+\begin_layout Itemize
+RunOngoing
+\end_layout
 
+\begin_layout Itemize
+DataflowStuck
+\end_layout
 
+\begin_layout Itemize
+RateOutOfRange
+\end_layout
+
+\begin_layout Itemize
+SubsystemRunningDegraded
+\end_layout
+
+\begin_layout Itemize
+FEDDeadtime
+\end_layout
+
+\begin_layout Itemize
+PartitionDeadtime
+\end_layout
+
+\begin_layout Standard
+Moreover there are also LM that monitor the state of the subsystems and
+ key parameters:
+\end_layout
+
+\begin_layout Itemize
+BeamMode
+\end_layout
+
+\begin_layout Itemize
+MachineMode
+\end_layout
+
+\begin_layout Itemize
+SessionId
+\end_layout
+
+\begin_layout Itemize
+RunNumber
+\end_layout
+
+\begin_layout Itemize
+DAQState
+\end_layout
+
+\begin_layout Itemize
+L0State
+\end_layout
+
+\begin_layout Itemize
+TCDSState
+\end_layout
+
+\begin_layout Standard
+All these LMs are the knowledge that was injected by human experts to automatica
+lly create the complete image of the dataflow health and deliver the detailed
+ descriptions and root causes in case of problems.
+ The modularity of the knowledge means high extensibility, adjustability
+ and ease low entry barrier for the newcomers.
+ 
 \end_layout
 
 \end_body
