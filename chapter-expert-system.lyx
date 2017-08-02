@@ -157,5 +157,428 @@ post mortem-analysis
 
 \end_layout
 
+\begin_layout Standard
+There were specific external forces that influenced the design of the project
+ and technologies used.
+ Specifically no rule-based engine framework has been used to implement
+ reasoning and define expert knowledge.
+ Moreover multiple the use cases and target user groups has to be taken
+ into acount.
+ As a result the solution has been implemented as a set of web applications
+ in a microservice architecture.
+\end_layout
+
+\begin_layout Subsection
+External forces
+\end_layout
+
+\begin_layout Standard
+It is highly likely that project's lifetime, like many other projects at
+ CERN, will be more than a decade.
+ Thus, one of the main requirements was to avoid highly specific solutions
+ that would make it difficult new team members quickly become productive.
+ The project will be maintained by differend people over time.
+ It needs to be easy to understand and modify requiring little effort to
+ learn.
+ Even though rule-based engines has been designed to be used by non-technical
+ people, allowing easy way to define logic this was not optimal way to go
+ in CMS DAQ group.
+ The programming skills are not the problem, introducing additional language
+ is not an option.
+ The solution needs to be kept as simple as possible.
+\end_layout
+
+\begin_layout Standard
+Moreover, the nature of the project forsees frequent logic-related updates
+ possibly introduced by different people.
+ If there is new recovery solution advised by sub-system experts the according
+ knowledge needs to be introduced to the system.
+ Finally the high availability needs to be maintained, as each downtime
+ system means no support for the operators.
+ 
+\end_layout
+
+\begin_layout Standard
+As a new expert framework has been designed from ground up.
+ It allows to define the knowledge in imperative language - Java.
+ The knowledge is organized in small independend Logic Modules.
+ This is a central part of the project.
+ All other features described in previous chapter has been delivered as
+ webservices organized in a microservice architecture.
+\end_layout
+
+\begin_layout Standard
+There are advantages of such approach - one being tailored to the needs
+ of the specific group - technical people knowing Java programming language,
+ having no problems in expressing their knowledge in imperative language.
+ Moreover the latency the analysis is low, knowledge is maintainable, organized
+ and easy to understand.
+ The solution gives high possibilities for subsystem experts without a need
+ to learn additional rule-based languages.
+\end_layout
+
+\begin_layout Standard
+There are drawback as well.
+ As this is a custom made solution there is no community.
+ In case of need there are authors and documentation only.
+\end_layout
+
+\begin_layout Subsection
+Defining knowlegde
+\end_layout
+
+\begin_layout Standard
+Its common in the industry that expert knowledge is defined in declarative
+ language.
+ For instance in a form of if-then-else rules.
+ As a result of external forces described in the previous paragraph this
+ way of defining knowledge has not been used.
+ The new custom made framework based on Logic-Modules has been introduced.
+ Logic Module (hereandafter LM) is a building block of DAQExpert expert
+ logic.
+ Each LM focuses on one thing: expressing piece of knowledge about DAQ system.
+ 
+\end_layout
+
+\begin_layout Itemize
+Each LM defines one condition 
+\end_layout
+
+\begin_layout Itemize
+The definition of condition is placed in satisfy method 
+\end_layout
+
+\begin_layout Itemize
+The method returns true if condition is satisfied and false otherwise 
+\end_layout
+
+\begin_layout Itemize
+One LM can use results of another LM
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/simple-logic-module.png
+	width 75text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Logic Module
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Using knowledge
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Defined knowledge is used to find optimal solution when problem occurres
+ in dataflow.
+ The set of LM is defined by DAQ experts.
+ To diagnose the problems in dataflow the snapshot of the system is taken.
+ It consists all necessary information to identify the problem.
+ LM operate on this snapshot and verifying if key parameters are in expected
+ states or in specified value ranges.
+ As LM may use outputs of other LMs there is predefined order of firing
+ them.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Subset-of-Logic"
+
+\end_inset
+
+ presents subset of LMs responsible for identifying one of many problems
+ that may occurr during datatakin - FED stuck.
+ There are five LMs and 3 parameters being monitored.
+ The LMs are fired in top-down order alowing LMs rely on others as arrows
+ indicate.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename img/lm-hierarchy.jpg
+	width 75text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Subset-of-Logic"
+
+\end_inset
+
+Subset of Logic Module hierarchy, the hierarchy is incomplete and simplified
+ for the clarity
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+LM may play two roles: it might be a substep of the analysis (expected-rate,
+ no-rate, no-rate-when-expected) and final step of the analysis (fed-stuck)
+ delivering description of the condition and recovery suggestion.
+ Finding optimal recovery to given condition in this hierarchy means that
+ the chain of LM was activated:
+\end_layout
+
+\begin_layout Itemize
+RunOngoing was active - means that there was a run started according to
+ TCDS and LevelZero,
+\end_layout
+
+\begin_layout Itemize
+NoRate - the summarized rate of FED was equal 0, there was no data flowing,
+\end_layout
+
+\begin_layout Itemize
+ExpectedRate - the states of subsystems TCDS and LevelZero indicate that
+ no recovery action is being issued right now, all subsystems are running
+ and the rate is expected to be non-zero, note that this LM is also checking
+ if there is currently a run ongoing using output of RunOngoing LM,
+\end_layout
+
+\begin_layout Itemize
+DataflowStuck - this summarizes outputs of two LMs: NoRate and ExpectedRate,
+ it's activated when two related LMs are active meaning that the dataflow
+ is stuck,
+\end_layout
+
+\begin_layout Itemize
+FED stuck - starts the analysis when there is DataflowStuck, it performs
+ specific checks that reveal the specific FED to be stuck, causing the dataflow
+ to be stuck, this LM identifies precisely the problem thus it consists
+ final instructions for the operator including detailed description of the
+ problem and recovery suggestion.
+\end_layout
+
+\begin_layout Subsection
+Knowledge in use
+\end_layout
+
+\begin_layout Standard
+There are in total 19 LMs identifying the problem.
+ These are so called leaf-LM - the final LM's in the hierarchy.
+ Here are examples of LMs used nowadays to identify the problems in CMS
+ DAQ system:
+\end_layout
+
+\begin_layout Itemize
+Out of sequence data received
+\end_layout
+
+\begin_layout Itemize
+Corrupted data received
+\end_layout
+
+\begin_layout Itemize
+Partition problem
+\end_layout
+
+\begin_layout Itemize
+FED stuck
+\end_layout
+
+\begin_layout Itemize
+PI disconnected
+\end_layout
+
+\begin_layout Itemize
+PI problem
+\end_layout
+
+\begin_layout Itemize
+FED disconnected
+\end_layout
+
+\begin_layout Itemize
+FMM problem
+\end_layout
+
+\begin_layout Itemize
+Ferol FIFO stuck 
+\end_layout
+
+\begin_layout Itemize
+Link problem
+\end_layout
+
+\begin_layout Itemize
+RU stuck
+\end_layout
+
+\begin_layout Itemize
+HLT problem
+\end_layout
+
+\begin_layout Standard
+Many other supporting LMs are used as well as indicated in previous paragraph:
+\end_layout
+
+\begin_layout Itemize
+NoRate
+\end_layout
+
+\begin_layout Itemize
+ExpectedRate
+\end_layout
+
+\begin_layout Itemize
+RunOngoing
+\end_layout
+
+\begin_layout Itemize
+DataflowStuck
+\end_layout
+
+\begin_layout Itemize
+RateOutOfRange
+\end_layout
+
+\begin_layout Itemize
+SubsystemRunningDegraded
+\end_layout
+
+\begin_layout Itemize
+FEDDeadtime
+\end_layout
+
+\begin_layout Itemize
+PartitionDeadtime
+\end_layout
+
+\begin_layout Standard
+Moreover there are also LM that monitor the state of the subsystems and
+ key parameters:
+\end_layout
+
+\begin_layout Itemize
+BeamMode
+\end_layout
+
+\begin_layout Itemize
+MachineMode
+\end_layout
+
+\begin_layout Itemize
+SessionId
+\end_layout
+
+\begin_layout Itemize
+RunNumber
+\end_layout
+
+\begin_layout Itemize
+DAQState
+\end_layout
+
+\begin_layout Itemize
+L0State
+\end_layout
+
+\begin_layout Itemize
+TCDSState
+\end_layout
+
+\begin_layout Standard
+All these LMs are the knowledge that was injected by human experts to automatica
+lly create the complete image of the dataflow health and deliver the detailed
+ descriptions and root causes in case of problems.
+ The modularity of the knowledge means high extensibility, adjustability
+ and ease low entry barrier for the newcomers.
+ 
+\end_layout
+
 \end_body
 \end_document

@@ -5,6 +5,9 @@
 \save_transient_properties true
 \origin unavailable
 \textclass article
+\begin_preamble
+\usepackage[section]{placeins}
+\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language english
@@ -26,6 +29,7 @@
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement th
 \paperfontsize default
 \spacing single
 \use_hyperref false
@@ -170,6 +174,15 @@ brain/skills of expert so that the shifter can use in night
 \begin_inset CommandInset include
 LatexCommand input
 filename "acat2017.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
 
 \end_inset
 

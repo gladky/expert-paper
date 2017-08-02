@@ -117,17 +117,13 @@ nature (webapplication)
 
 \end_layout
 
-\begin_deeper
 \begin_layout Enumerate
 Monitoring and aggregation (snapshot of system)
 \end_layout
 
 \begin_layout Enumerate
-finding optimal recovery suggestion, 
-\end_layout
-
-\begin_layout Enumerate
-dataflow & Processing & analysis (how the snapshot are processed)
+finding optimal recovery suggestion, &&dataflow & Processing & analysis
+ (how the snapshot are processed)
 \end_layout
 
 \begin_layout Enumerate
@@ -152,10 +148,381 @@ reports
 \end_layout
 
 \end_deeper
-\end_deeper
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Architecture
+\end_layout
+
+\begin_layout Standard
+The system has been organized in micro-service architecture.
+ Three services has been distingished to implement use cases described in
+ first chapter.
+ Firstly there is a service that aggregates all monitoring information into
+ one snapshot and persists it - Snapshot Service.
+ Secondly there is a service that applies the knowledge of the experts on
+ the snapshots - Reasoning Service.
+ Finally there is a service that manages and delivers notifications, including
+ sms, e-mail and suggestions to control room.
+ The DAQExpert brings all parts together in a form of web application allowing
+ to browse whole history of monitoring data, to view the analysis, to control
+ the snapshotting of a system and to manage notifications.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/architecture.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Architecture
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Monitoring and aggregation
+\end_layout
+
+\begin_layout Standard
+There are multiple sources of monitoring information enabling access either
+ offline or online.
+ The information varies in frequency of updates and type of API available
+ to access it.
+ To enable reasoning in a real time the easy access to any information needs
+ to be assured.
+ The first step was to aggreagate the information into so-called snapshots.
+ Snapshot is a representation of the instantaneous state of the system.
+ The figure presents the model of the snapshot.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/snapshot.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+DAQ system model used for creating snapshots
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The snapshot brings both structural information of the system, i.e.
+ from which elements the current configuration consists of and instaneneus
+ state of this elements.
+ There might be multiple BU (Builder Unit) elements in DAQ configuration
+ and this will be represented accordingly in the number of objects of the
+ class BU in the snapshot.
+ Each BU element will have it's own instanteneus state which will be represented
+ using fields of object BU.
+\end_layout
+
+\begin_layout Subsection
+Dataflow
+\end_layout
+
+\begin_layout Standard
+There are multiple steps before information from data sources is available
+ to the clients.
+ The dataflow is presented on the figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dataflow-from-external"
+
+\end_inset
+
+.
+ First the monitoring data sourcess are requested for instantaneous state
+ of the DAQ system.
+ The information retrieved from multiple sources is aggregated and mapped
+ to the model - the snapshot of the system.
+ While the snapshot is persisted for possible later post-mortem analysis
+ it is simultaneously sent to ReasoningService for analysis.
+ As a result of analysis the notifications may be yielded that will be later
+ dispatched by the NotificationService and delivered to the clients.
+ On the way all of the services persist their results enabling to browse
+ historic data.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/data-flow.png
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Dataflow-from-external"
+
+\end_inset
+
+Dataflow from data sources to the clients.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Tools
+\end_layout
+
+\begin_layout Paragraph
+Dashboard
+\end_layout
+
+\begin_layout Standard
+There are four main tools delivered by the DAQExpert.
+ First is the dashboard - the tool used in control room to deliver suggestion
+ in a real-time.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Dashboard-snapshot"
+
+\end_inset
+
+ presents snapshot of a dashboard while the system was in the problematic
+ state.
+ This is what the CMS operator sees when CMS encouters a problem - in this
+ case 
+\begin_inset Quotes eld
+\end_inset
+
+out of sequence data received
+\begin_inset Quotes erd
+\end_inset
+
+.
+ This tool adopts websockets to ensure minimum latency of delivering the
+ results and enable quicker reaction time of the operator.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/dashboard-snapshot.jpg
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Dashboard-snapshot"
+
+\end_inset
+
+Dashboard snapshot
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Browser 
+\end_layout
+
+\begin_layout Standard
+Second tool is the browser - this tools enables easy post-mortem analysis.
+ 
+\end_layout
+
+\begin_layout Standard
+There were two main challanges implementing this tool.
+ There was a timeline of events to display.
+ Each event had a start date and end date.
+ There was not a lot of entries in db - several hundred thousand although
+ many columns had to be retrieved on each request.
+ The data was requested based on timespan.
+ The client could request the data for the timespan from few seconds to
+ few months.
+ Some entries were short, O(1sec), other long O(1month).
+ Obviously short events were not really relevant in long-timespan requests
+ (You could hardly see event lasting 1 sec browsing few months of data).
+ Steps to resolve poor performance:
+\end_layout
+
+\begin_layout Enumerate
+introduce redundant column duration (calculating duration from start and
+ end column)
+\end_layout
+
+\begin_layout Enumerate
+modify the initial query efficiently filtering on new column duration with
+ a dynamic threshold based on timespan of requests (short events would be
+ filtered)
+\end_layout
+
+\begin_layout Enumerate
+introduce additional query counting events filtered based on the same threshold
+ as the main query
+\end_layout
+
+\begin_layout Enumerate
+combine both queries in the application persistence layer
+\end_layout
+
+\begin_layout Enumerate
+alter presentation layer to handle and appriopriately visualize filtered
+ data Introduced changes included both structural and querying improvements.
+ 
+\end_layout
+
+\begin_layout Standard
+Second case.
+ There was a timeseries of data stored in db (several tens of millions of
+ rows).
+ Again the data could be viewed in various timespan (from few seconds to
+ few months).
+ Showing all data for long time ranges resulted in heavy load and performance
+ problems of visualization layer.
+ Sampling data on the fly was not an option due to domain specific requirements.
+ Changes I introduced:
+\end_layout
+
+\begin_layout Enumerate
+data was segmented to multiple resolutions (original, minute, hour, day)
+ using linear segmentation algorithm (solved sampling problem) 
+\end_layout
+
+\begin_layout Enumerate
+additional column resolution introduced in the table - enabling filtering
+ based on resolution requested 
+\end_layout
+
+\begin_layout Enumerate
+based on timespan requested the resolution was dynamically selected and
+ the down-sizing the response sizes and overall performance
+\end_layout
+
+\begin_layout Paragraph
+Archive
+\end_layout
+
+\begin_layout Standard
+This tools enables access to the historic notifications generated by Notificatio
+nService.
+ The client may filter the data by date, notification type and condition
+ type.
+ Figure x presents snapshot of the archieve tool.
+ There were no challanges related to this tool.
+\end_layout
+
+\begin_layout Paragraph
+Reports
+\end_layout
+
+\begin_layout Standard
+Tool delivered to access statistical data.
+ Based on selected timeframe the report will be generated.
+ It includes efficiency chart, ...
+ histogram...
+\end_layout
+
+\begin_layout Paragraph
+Configuration
+\end_layout
+
+\begin_layout Standard
+Tool for defining preferences on when, how and which notifications one wants
+ to receive.
 \end_layout
 
 \end_body
