@@ -383,7 +383,7 @@ status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename img/dashboard-snapshot.jpg
+	filename img/tool-dashboard.jpg
 	width 100text%
 
 \end_inset
@@ -492,6 +492,37 @@ based on timespan requested the resolution was dynamically selected and
  the down-sizing the response sizes and overall performance
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Browser tool interface
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Paragraph
 Archive
 \end_layout
@@ -505,6 +536,36 @@ nService.
  There were no challanges related to this tool.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/tool-archive.png
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Archive tool interface
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Paragraph
 Reports
 \end_layout
@@ -514,6 +575,43 @@ Tool delivered to access statistical data.
  Based on selected timeframe the report will be generated.
  It includes efficiency chart, ...
  histogram...
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/tool-reports.png
+	width 100cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Report tool interface
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Paragraph
