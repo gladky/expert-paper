@@ -162,10 +162,8 @@ There were specific external forces that influenced the design of the project
  and technologies used.
  Specifically no rule-based engine framework has been used to implement
  reasoning and define expert knowledge.
- Moreover multiple the use cases and target user groups has to be taken
- into acount.
  As a result the solution has been implemented as a set of web applications
- in a microservice architecture.
+ in a micro-service architecture.
 \end_layout
 
 \begin_layout Subsection
@@ -176,8 +174,8 @@ External forces
 It is highly likely that project's lifetime, like many other projects at
  CERN, will be more than a decade.
  Thus, one of the main requirements was to avoid highly specific solutions
- that would make it difficult new team members quickly become productive.
- The project will be maintained by differend people over time.
+ that would make it difficult to new team members quickly become productive.
+ The project will be maintained by different people over time.
  It needs to be easy to understand and modify requiring little effort to
  learn.
  Even though rule-based engines has been designed to be used by non-technical
@@ -189,7 +187,7 @@ It is highly likely that project's lifetime, like many other projects at
 \end_layout
 
 \begin_layout Standard
-Moreover, the nature of the project forsees frequent logic-related updates
+Moreover, the nature of the project foresees frequent logic-related updates
  possibly introduced by different people.
  If there is new recovery solution advised by sub-system experts the according
  knowledge needs to be introduced to the system.
@@ -199,12 +197,13 @@ Moreover, the nature of the project forsees frequent logic-related updates
 \end_layout
 
 \begin_layout Standard
-As a new expert framework has been designed from ground up.
- It allows to define the knowledge in imperative language - Java.
- The knowledge is organized in small independend Logic Modules.
+As a result new expert framework has been designed from ground up.
+ It allows to define the knowledge in imperative language popular in the
+ group - Java.
+ The knowledge is organized in small independent Logic Modules.
  This is a central part of the project.
  All other features described in previous chapter has been delivered as
- webservices organized in a microservice architecture.
+ web-services organized in a micro-service architecture.
 \end_layout
 
 \begin_layout Standard
@@ -219,23 +218,24 @@ There are advantages of such approach - one being tailored to the needs
 
 \begin_layout Standard
 There are drawback as well.
- As this is a custom made solution there is no community.
+ As this is a custom made solution there is no community and little support
+ in the longterm perspective.
  In case of need there are authors and documentation only.
 \end_layout
 
 \begin_layout Subsection
-Defining knowlegde
+Knowledge definition
 \end_layout
 
 \begin_layout Standard
 Its common in the industry that expert knowledge is defined in declarative
  language.
- For instance in a form of if-then-else rules.
+ For instance in a form of if-then-else rules expressed in high-level rules
+ language.
  As a result of external forces described in the previous paragraph this
  way of defining knowledge has not been used.
  The new custom made framework based on Logic-Modules has been introduced.
- Logic Module (hereandafter LM) is a building block of DAQExpert expert
- logic.
+ Logic Module (hereinafter LM) is a building block of DAQExpert expert logic.
  Each LM focuses on one thing: expressing piece of knowledge about DAQ system.
  
 \end_layout
@@ -307,7 +307,7 @@ Logic Module
 \end_layout
 
 \begin_layout Subsection
-Using knowledge
+Knowledge engine
 \end_layout
 
 \begin_layout Standard
@@ -324,12 +324,12 @@ status open
 \end_layout
 
 \begin_layout Standard
-Defined knowledge is used to find optimal solution when problem occurres
- in dataflow.
+Defined knowledge is used to find optimal solution when problem occurs in
+ data-flow.
  The set of LM is defined by DAQ experts.
- To diagnose the problems in dataflow the snapshot of the system is taken.
+ To diagnose the problems in data-flow the snapshot of the system is taken.
  It consists all necessary information to identify the problem.
- LM operate on this snapshot and verifying if key parameters are in expected
+ LM operate on this snapshot and verifies if key parameters are in expected
  states or in specified value ranges.
  As LM may use outputs of other LMs there is predefined order of firing
  them.
@@ -341,9 +341,9 @@ reference "fig:Subset-of-Logic"
 \end_inset
 
  presents subset of LMs responsible for identifying one of many problems
- that may occurr during datatakin - FED stuck.
+ that may occur during data-taking - FED stuck.
  There are five LMs and 3 parameters being monitored.
- The LMs are fired in top-down order alowing LMs rely on others as arrows
+ The LMs are fired in top-down order allowing LMs rely on others as arrows
  indicate.
 \end_layout
 
@@ -351,7 +351,7 @@ reference "fig:Subset-of-Logic"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset ERT
@@ -406,9 +406,9 @@ Subset of Logic Module hierarchy, the hierarchy is incomplete and simplified
 \end_layout
 
 \begin_layout Standard
-LM may play two roles: it might be a substep of the analysis (expected-rate,
- no-rate, no-rate-when-expected) and final step of the analysis (fed-stuck)
- delivering description of the condition and recovery suggestion.
+LM may play two roles: it might be a sub-step of the analysis (expected-rate,
+ no-rate, dataflow-stuck) and final step of the analysis (fed-stuck) delivering
+ description of the condition and recovery suggestion.
  Finding optimal recovery to given condition in this hierarchy means that
  the chain of LM was activated:
 \end_layout
@@ -431,20 +431,16 @@ ExpectedRate - the states of subsystems TCDS and LevelZero indicate that
 
 \begin_layout Itemize
 DataflowStuck - this summarizes outputs of two LMs: NoRate and ExpectedRate,
- it's activated when two related LMs are active meaning that the dataflow
+ it's activated when two related LMs are active meaning that the data-flow
  is stuck,
 \end_layout
 
 \begin_layout Itemize
 FED stuck - starts the analysis when there is DataflowStuck, it performs
- specific checks that reveal the specific FED to be stuck, causing the dataflow
+ specific checks that reveal the specific FED to be stuck, causing the data-flow
  to be stuck, this LM identifies precisely the problem thus it consists
  final instructions for the operator including detailed description of the
  problem and recovery suggestion.
-\end_layout
-
-\begin_layout Subsection
-Knowledge in use
 \end_layout
 
 \begin_layout Standard
@@ -573,10 +569,10 @@ TCDSState
 
 \begin_layout Standard
 All these LMs are the knowledge that was injected by human experts to automatica
-lly create the complete image of the dataflow health and deliver the detailed
+lly create the complete image of the data-flow health and deliver the detailed
  descriptions and root causes in case of problems.
  The modularity of the knowledge means high extensibility, adjustability
- and ease low entry barrier for the newcomers.
+ and  low entry barrier for the newcomers.
  
 \end_layout
 

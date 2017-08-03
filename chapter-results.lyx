@@ -137,12 +137,12 @@ bypass the shifter
 \end_layout
 
 \begin_layout Standard
-How much good does the project does.
+How much good does the project do.
  Is the project already successful after one and a half years?
 \end_layout
 
 \begin_layout Subsection
-Selecting optimal recovery action
+Recovery action selection
 \end_layout
 
 \begin_layout Standard
@@ -162,7 +162,7 @@ This may not be the most challenging area to improve but definitely one
 \end_layout
 
 \begin_layout Subsection
-Minimizing external help
+External help
 \end_layout
 
 \begin_layout Standard
@@ -172,7 +172,7 @@ This area is of great interest for on-call human experts as it has a potential
 \end_layout
 
 \begin_layout Subsection
-Facilitating post mortem analysis
+Post mortem analysis
 \end_layout
 
 \begin_layout Standard

@@ -180,10 +180,6 @@ facilitate post mortem analysis
 
 \end_layout
 
-\begin_layout Subsection
-Operator's challanges
-\end_layout
-
 \begin_layout Standard
 Being able to act within seconds during operations of LHC is one of the
  challenges of the operator.
@@ -274,6 +270,19 @@ Breakdown of downtime (data from 2016-11-01 to 2016-11-30)
 \end_layout
 
 \begin_layout Plain Layout
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+To convey more information use chart plotting this breakdown over time
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -287,8 +296,8 @@ Areas of improvement
 \end_layout
 
 \begin_layout Standard
-Reducing both reaction time and choosing correct optimal recovery action
- are the two areas for improvement that directly affect efficiency of CMS.
+Reducing reaction time and choosing correct optimal recovery action are
+ the two areas for improvement that directly affect efficiency of CMS.
  There are also other chores that this project aims to streamline.
  First is to facilitate the post mortem analysis for DAQ experts, another
  is to aggregate and to report statistical performance of the system and
@@ -315,34 +324,13 @@ reference "fig:Breakdown-of-downtime"
  of CMS.
  Therefore its essential to define and select the quickest set of actions
  needed to bring the system back to operation.
- Many different recovery procedures may be distinguished, for example:
-\end_layout
-
-\begin_layout Itemize
-stop the run and start
-\end_layout
-
-\begin_layout Itemize
-reconfigure specific subsystem
-\end_layout
-
-\begin_layout Itemize
-red and green recycle
-\end_layout
-
-\begin_layout Itemize
-resync
-\end_layout
-
-\begin_layout Itemize
-restart
-\end_layout
-
-\begin_layout Standard
-They differ significantly in terms of impact they have on system and how
+ Many different recovery procedures may be distinguished, e.g.: stop the run
+ and start, reconfigure specific subsystem, red and green recycle, resync,
+ restart.
+ They differ significantly in terms of impact they have on system and how
  much time they take to complete.
  Some of them take few seconds whereas other few minutes.
- One of the habits observed is issuing by the operator the most versatile
+ One of the observed habits is issuing by the operator the most versatile
  recovery action for most problems.
  Note that the operator on one hand can issue this general-purpose, heavy
  recovery action to be sure that it will fix the problem.
@@ -350,8 +338,8 @@ They differ significantly in terms of impact they have on system and how
  given circumstances action.
  It might be less stressful to follow the first solution.
  In the latter case the problem needs to be correctly identified which might
- be not the trivial task and therefor takes some time.
- The aim o the project is to help operator choose optimal recovery action.
+ be not the trivial task and therefore takes some time.
+ The aim of the project is to help operator choose optimal recovery action.
 \end_layout
 
 \begin_layout Paragraph
@@ -359,8 +347,8 @@ Reaction time
 \end_layout
 
 \begin_layout Standard
-Time from the problem occurrence to first action taken to recover is second
- area to improve.
+Time from the problem occurrence to first recovery action is second area
+ to improve.
  There are sound notifications in the control room to attract attention
  of the shifter in case data flow stops.
  Identification of the problem and selecting the recovery action takes from
@@ -560,14 +548,14 @@ To analyze the problem afterwards human DAQ experts have at their disposal
  new tool - Browser (see figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Browser-tool-showing"
+reference "fig:Browser-tool-showing-1"
 
 \end_inset
 
 , 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Browser-tool-showing-1"
+reference "fig:Browser-tool-showing"
 
 \end_inset
 
@@ -576,7 +564,7 @@ reference "fig:Browser-tool-showing-1"
  key parameters plotted.
  The former part presents transitions of different components and steps
  of the analysis in time.
- One can browse through time zooming and going backward and forward in time.
+ One can browse through time zooming and going backward and forward.
  
 \end_layout
 
@@ -695,7 +683,7 @@ reference "fig:Statistics---breakdown-causing-subsystem"
 \end_inset
 
  present accordingly breakdown of downtime per causing problem and per causing
- subsystem generate by this tool.
+ subsystem.
 \end_layout
 
 \begin_layout Standard
