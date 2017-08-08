@@ -137,8 +137,23 @@ bypass the shifter
 \end_layout
 
 \begin_layout Standard
-How much good does the project do.
- Is the project already successful after one and a half years?
+Measuring the success of the project was not a trivial task.
+ The ultimate goal is to increase the efficiency of datataking at CMS.
+ However the efficiency is not adequate parameter as there are many differend
+ factors that interfere with DAQExpert.
+ The detector is constantly being improved, there were major upgrades in
+ both hardware and software that influenced the overal efficiency of the
+ CMS.
+\end_layout
+
+\begin_layout Standard
+The operators and daq-expert feedback is important as they are the target
+ user groups of the system.
+ As much as they appreciate the new system, the verbal feedback it's not
+ quantitive and their opinion it's subjective.
+ There are three parameters of the system that adequately represent the
+ success of the project being practically independent on other factors at
+ the same time.
 \end_layout
 
 \begin_layout Subsection
@@ -146,9 +161,54 @@ Recovery action selection
 \end_layout
 
 \begin_layout Standard
-This is definitely the best side of the project.
- Comparison of contribution of suboptimal recovery actions in past few month,
- before and after.
+The improvement was mostly observed in the number of optimal recovery decisions
+ taken by operators in case of dataflow upsets.
+ As stated in the section x, minimizing the recovery time, which is major
+ part of total downtime, is the essential way of optimizing efficiency of
+ datataking.
+ Figure x presents contribution of optimal and suboptimal recovery actions
+ trends in past few months.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/optimal-vs-suboptimal.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Recovery action selection, optimal vs suboptimal recovery action
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The ratio of number of optimal recovery decisions to suboptimal decisions
+ is 85% during first two months of data-taking in 2017.
+ This number is significantly higher than average ratio of 55% in 2016 (measured
+ August-November).
 \end_layout
 
 \begin_layout Subsection
@@ -156,9 +216,87 @@ Reaction time
 \end_layout
 
 \begin_layout Standard
-This may not be the most challenging area to improve but definitely one
- of the first to address.
- Comparison of histograms here.
+This may not be the most important area to improve as it is minor part of
+ total downtime (see section x).
+ Moreover it's an area where human factor plays great role.
+ There is high variation depending on idividual human skills and focus to
+ the job.
+ Though it's definitely one that we want to address.
+ Figure x and x present trend in reaction time of the operator.
+ The reaction time is now slightly lower, more predictable and variation
+ is more limited.
+ Note that 75% of decisions in 2017 has been made in first 66.5 seconds.
+ That is faster than average reaction time which is 71 seconds.
+ In comparison to four months of 2016 where 75% of decisions has been made
+ on average in first 80.4 seconds, it means improvement of 13.9 seconds.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/reaction-time-trend.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Reaction time over time
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/reaction-time-trend-zoom.png
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Reaction time over time
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -169,6 +307,44 @@ External help
 This area is of great interest for on-call human experts as it has a potential
  of limiting disadvantages of their obligatory shifts.
  Normalized number of calls to on-call before and after will be presented.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename img/external-help.png
+	width 100text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+External help requests
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection

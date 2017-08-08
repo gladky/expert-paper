@@ -186,7 +186,7 @@ Being able to act within seconds during operations of LHC is one of the
  It's a demanding responsibility that may be stressful for some people.
  DAQ system is a complex system therefore there are tools to automate certain
  operations, e.g.
- staring the run, stopping, reseting, resyncing, configuring etc.
+ starting the run, stopping, reseting, resyncing, configuring etc.
  Those tools facilitate the actions initiated by operators, however, it's
  not uncommon that the system goes into erroneous state where deeper understandi
 ng of the system is required to overcome the problem in the optimal way.
@@ -226,7 +226,7 @@ reference "fig:Breakdown-of-downtime"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset ERT
@@ -490,7 +490,7 @@ reference "fig:Dashboard-tool--"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -690,7 +690,7 @@ reference "fig:Statistics---breakdown-causing-subsystem"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset ERT
@@ -746,7 +746,7 @@ Statistics - breakdown of downtime to causing problems
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset ERT
