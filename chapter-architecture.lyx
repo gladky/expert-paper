@@ -232,7 +232,7 @@ There are multiple sources of monitoring information enabling access either
  to be assured.
  The first step was to aggregate the information into so-called snapshots.
  Snapshot is a representation of the instantaneous state of the system.
- The figure 
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:DAQ-system-model"
@@ -294,7 +294,17 @@ The snapshot brings both structural information of the system, i.e.
  class BU in the snapshot.
  Each BU element will have it's own instantaneous state which will be represente
 d with fields of object BU.
- There are also other elements like, RU, FED, Subsystem etc.
+ There are also other elements like, RU
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Readout Unit, fast buffering device for short-term storage of event fragments
+\end_layout
+
+\end_inset
+
+, FED, Subsystem etc.
  The snapshot brings all the elements and their instantaneous state to one
  place.
  The scope of the snapshot has been designed so that there are all information
@@ -322,7 +332,7 @@ reference "fig:Dataflow-from-external"
  to the model - the snapshot of the system.
  While the snapshot is persisted for possible later post-mortem analysis
  it is simultaneously sent to ReasoningService for analysis.
- As a result of analysis the notifications may be yielded that will be later
+ As a result of analysis, notifications may be yielded that will be later
  dispatched by the NotificationService and delivered to the clients.
  On the way all of the services persist their results enabling to browse
  historic data.
@@ -372,13 +382,16 @@ Dataflow from data sources to the clients.
 Tools
 \end_layout
 
+\begin_layout Standard
+There are four main tools delivered by the DAQExpert.
+\end_layout
+
 \begin_layout Paragraph
 Dashboard
 \end_layout
 
 \begin_layout Standard
-There are four main tools delivered by the DAQExpert.
- First is the dashboard - the tool used in control room to deliver suggestion
+First is the dashboard - the tool used in control room to deliver suggestion
  in a real-time.
  Figure 
 \begin_inset CommandInset ref
@@ -569,7 +582,8 @@ Second case.
  few months).
  Showing all data for long time ranges resulted in heavy load and performance
  problems of visualization layer.
- Sampling data on the fly was not an option due to domain specific requirements.
+ Down-sampling data on the fly was not an option due to domain specific
+ requirements.
  Changes I introduced:
 \end_layout
 

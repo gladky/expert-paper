@@ -137,23 +137,37 @@ bypass the shifter
 \end_layout
 
 \begin_layout Standard
-Measuring the success of the project was not a trivial task.
- The ultimate goal is to increase the efficiency of datataking at CMS.
- However the efficiency is not adequate parameter as there are many differend
- factors that interfere with DAQExpert.
+Measuring the success of the project was quite challenging task.
+ The ultimate goal is to increase the efficiency of data-taking at CMS.
+ However the overall efficiency is not an adequate parameter as there are
+ many different factors that interfere with DAQExpert.
  The detector is constantly being improved, there were major upgrades in
- both hardware and software that influenced the overal efficiency of the
+ both hardware and software that influenced the final efficiency of the
  CMS.
 \end_layout
 
 \begin_layout Standard
-The operators and daq-expert feedback is important as they are the target
- user groups of the system.
- As much as they appreciate the new system, the verbal feedback it's not
- quantitive and their opinion it's subjective.
- There are three parameters of the system that adequately represent the
- success of the project being practically independent on other factors at
- the same time.
+The feedback of operators and human experts is important as they are the
+ target user groups of the system.
+ As much as they appreciate the new system, the verbal feedback cannot be
+ used as a measure of success as it is not quantitive and it is subjective.
+\end_layout
+
+\begin_layout Standard
+Three parameters have been identified to adequately represent the success
+ of the project.
+ They are practically independent on other factors which make them reliable
+ means of comparison.
+\end_layout
+
+\begin_layout Standard
+Expert was introduced in mid 2016 but operators were instructed to use it
+ in the 2017.
+ All comparisons are based on 6 months of data-taking.
+ Four months from 2016 where there was no DAQExpert support and two months
+ from 2017 where the support was available.
+ Months December of 2016 and May of 2017 were excluded due to special conditions
+ of data-taking and the fact that they lasted for only few days.
 \end_layout
 
 \begin_layout Subsection
@@ -162,12 +176,26 @@ Recovery action selection
 
 \begin_layout Standard
 The improvement was mostly observed in the number of optimal recovery decisions
- taken by operators in case of dataflow upsets.
- As stated in the section x, minimizing the recovery time, which is major
- part of total downtime, is the essential way of optimizing efficiency of
- datataking.
- Figure x presents contribution of optimal and suboptimal recovery actions
- trends in past few months.
+ taken by operators in case of data-flow upsets.
+ As stated in the section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Areas-of-improvement"
+
+\end_inset
+
+, the recovery time is major part of total downtime, thus is the essential
+ to minimize it by choosing the most appropriate and time-efficient - optimal
+ - recovery actions.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Recovery-action-selection,"
+
+\end_inset
+
+ presents trends of optimal and suboptimal recovery actions contribution
+ in past few months.
  
 \end_layout
 
@@ -175,7 +203,7 @@ The improvement was mostly observed in the number of optimal recovery decisions
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -191,6 +219,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Recovery-action-selection,"
+
+\end_inset
+
 Recovery action selection, optimal vs suboptimal recovery action
 \end_layout
 
@@ -205,10 +239,36 @@ Recovery action selection, optimal vs suboptimal recovery action
 \end_layout
 
 \begin_layout Standard
-The ratio of number of optimal recovery decisions to suboptimal decisions
- is 85% during first two months of data-taking in 2017.
- This number is significantly higher than average ratio of 55% in 2016 (measured
- August-November).
+The ratio of optimal recovery decisions number to suboptimal decisions was
+ on average 86.7% during first two months of data-taking in 2017.
+ This number is significantly higher than average ratio of 53.4% in 2016
+ (measured August-November).
+ This means that operator has indeed selected the optimal decision more
+ often after the DAQExpert introduction.
+ Although this says nothing about how much beam-time is gained.
+\end_layout
+
+\begin_layout Standard
+There are two main categories of recovery actions: heavy - lasting usually
+ for 3-4 minutes, initiated by e.g.
+ stopping the run; and light - lasting 7-10 seconds initiated by e.g.
+ resetting the system.
+ Suboptimal decisions mean unnecessary time spend on recovery or irrelevant
+ action being performed that will not solve the problem leading to same
+ problematic condition after its completion.
+ On average it means that each suboptimal decision means roughly 93-125
+ seconds of overhead in recovery time.
+\end_layout
+
+\begin_layout Standard
+There were 41 suboptimal decisions out of 88 in total in presented period
+ of 2016.
+ This means that there was 3813-5125 seconds of recovery overhead, or 43-58
+ seconds of overhead per operator intervention on average.
+ In 2017 there were 7 suboptimal out of 53 decisions in total.
+ This means 651-875 seconds of recovery overhead, or 12-16 seconds of overhead
+ per intervention.
+ Thus the improvement was roughly 28%.
 \end_layout
 
 \begin_layout Subsection
@@ -219,24 +279,52 @@ Reaction time
 This may not be the most important area to improve as it is minor part of
  total downtime (see section x).
  Moreover it's an area where human factor plays great role.
- There is high variation depending on idividual human skills and focus to
- the job.
- Though it's definitely one that we want to address.
- Figure x and x present trend in reaction time of the operator.
+ There is high variation depending on individual operator capabilities.
+ It is though area to be addressed.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Reaction-time-over"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Reaction-time-over-zoomed"
+
+\end_inset
+
+ present trend in reaction time of the operator.
  The reaction time is now slightly lower, more predictable and variation
- is more limited.
- Note that 75% of decisions in 2017 has been made in first 66.5 seconds.
- That is faster than average reaction time which is 71 seconds.
- In comparison to four months of 2016 where 75% of decisions has been made
- on average in first 80.4 seconds, it means improvement of 13.9 seconds.
+ is lesser.
+ The average reaction time in 2016 is 81.7 seconds while in 2017 it is 45.5.
+\end_layout
+
+\begin_layout Standard
+Note that 75% of quickest decisions in 2017 has been made in first 66.5 seconds.
+ In comparison to 2016, where they has been made on average in first 80.4
+ seconds, it means improvement of 13.9 seconds.
  
+\end_layout
+
+\begin_layout Standard
+Moreover, 50% of decisions were made in first 45.5 seconds in 2016 while
+ in 2017 they were made in first 34.3 seconds.
+ This means there is an improvement of 11.1 seconds on average.
+\end_layout
+
+\begin_layout Standard
+Best 25% of decisions were made in first 22.9 seconds in 2016 while in 2017
+ they were made in first 16.05 seconds which means there is an improvement
+ of 6.85 seconds on average.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -252,6 +340,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Reaction-time-over"
+
+\end_inset
+
 Reaction time over time
 \end_layout
 
@@ -286,7 +380,13 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Reaction time over time
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Reaction-time-over-zoomed"
+
+\end_inset
+
+Reaction time over time, zoomed in
 \end_layout
 
 \end_inset
@@ -306,18 +406,22 @@ External help
 \begin_layout Standard
 This area is of great interest for on-call human experts as it has a potential
  of limiting disadvantages of their obligatory shifts.
- Normalized number of calls to on-call before and after will be presented.
+ Number of calls (normalized by number of problems) to on-call before and
+ after will be presented on figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:External-help-requests"
+
+\end_inset
+
+ and compared.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
-
-\begin_layout Plain Layout
-
-\end_layout
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -330,6 +434,12 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:External-help-requests"
+
+\end_inset
+
 External help requests
 \end_layout
 
@@ -348,24 +458,48 @@ External help requests
 \end_layout
 
 \begin_layout Subsection
-Post mortem analysis
+Non-quantitative results
 \end_layout
 
 \begin_layout Standard
-Give example of a post mortem case.
- What where experts looking for? Did the project facilitated the investigation?
- Measurable parameters: how many services they have to reach to find the
- data, is the data even available.
+An improvement in the field of post mortem analysis has been made as well.
+ In case of more demanding data-flow upsets where further investigation
+ is required the DAQExpert brings a value.
+ First of all the go-back in time functions has been introduced that enable
+ human experts to access the historic data easily.
+ Second of all there is more data available to support post-mortem analysis
+ than ever before.
+ All parameters of the system are kept for some period of time when debugging
+ demand is more likely.
+ Later on the resolution of data is reduced so that the disk space requirements
+ are feasible.
+\end_layout
+
+\begin_layout Standard
+Moreover there are statistics available.
+ They are not the key feature of the project but they give useful insights
+ about the system and its environment.
+ For instance the results presented in this chapter were mainly retrieved
+ from DAQExpert analysis database.
+ The data helps identifying the areas of system that needs more attention,
+ e.g.
+ by reporting subsystems causing most downtime.
 \end_layout
 
 \begin_layout Subsection
-Statistics
+Summary
 \end_layout
 
 \begin_layout Standard
-It's not the key feature of the project but it gives useful insights about
- the system.
- The data helps identifying the areas of system that needs more attention.
+Both quantitative and non-quantitative result were presented in this chapter.
+ The recovery action selection was improved significantly by introducing
+ the expert system.
+ The optimal recovery actions are now taken on average 86.8% of time compared
+ to 53.4% of time before.
+ The reaction time shrunk from 81.7 to 45.5 seconds.
+ The external help ...
+ Non-quantitative advantages are appreciated by user groups.
+ 
 \end_layout
 
 \end_body
