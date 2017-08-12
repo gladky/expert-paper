@@ -138,7 +138,7 @@ bypass the shifter
 
 \begin_layout Standard
 Measuring the success of the project was quite challenging task.
- The ultimate goal is to increase the efficiency of data-taking at CMS.
+ The ultimate goal is to increase the efficiency of data-taking at the CMS.
  However the overall efficiency is not an adequate parameter as there are
  many different factors that interfere with DAQExpert.
  The detector is constantly being improved, there were major upgrades in
@@ -155,23 +155,26 @@ The feedback of operators and human experts is important as they are the
 
 \begin_layout Standard
 Three parameters have been identified to adequately represent the success
- of the project.
- They are practically independent on other factors which make them reliable
+ of the project: accuracy of the recovery action selection, reaction time
+ of the operators and demand of the external help.
+ They are practically independent of other factors which make them reliable
  means of comparison.
 \end_layout
 
 \begin_layout Standard
 Expert was introduced in mid 2016 but operators were instructed to use it
- in the 2017.
- All comparisons are based on 6 months of data-taking.
- Four months from 2016 where there was no DAQExpert support and two months
- from 2017 where the support was available.
+ in the early 2017.
+ All comparisons are based on 6 months of data-taking (August 2016 - July
+ 2017, excluding YETS that lasted December 2016 - April 2017, and May 2017).
  Months December of 2016 and May of 2017 were excluded due to special conditions
- of data-taking and the fact that they lasted for only few days.
+ of data-taking and the fact that the operations lasted only for few days.
+ This gives four months from 2016 where there was no DAQExpert support and
+ two months from 2017 where the support was available.
+ 
 \end_layout
 
 \begin_layout Subsection
-Recovery action selection
+Recovery action selection accuracy
 \end_layout
 
 \begin_layout Standard
@@ -184,9 +187,9 @@ reference "subsec:Areas-of-improvement"
 
 \end_inset
 
-, the recovery time is major part of total downtime, thus is the essential
- to minimize it by choosing the most appropriate and time-efficient - optimal
- - recovery actions.
+, the recovery time is major part of total downtime (77% of total downtime),
+ thus it is essential to minimize it by choosing the most appropriate and
+ time-efficient - optimal - recovery actions.
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -225,7 +228,13 @@ name "fig:Recovery-action-selection,"
 
 \end_inset
 
-Recovery action selection, optimal vs suboptimal recovery action
+Recovery action selection accuracy.
+ Blue columns represent number of optimal recovery actions, black - suboptimal
+ ones.
+ Both blue and black columns' height corresponds to primary, left, y-axis
+ 'Number of recovery'.
+ The green spline represents ratio of optimal to all recovery actions and
+ corresponds to secondary, right y-axis.
 \end_layout
 
 \end_inset
@@ -239,13 +248,13 @@ Recovery action selection, optimal vs suboptimal recovery action
 \end_layout
 
 \begin_layout Standard
-The ratio of optimal recovery decisions number to suboptimal decisions was
- on average 86.7% during first two months of data-taking in 2017.
- This number is significantly higher than average ratio of 53.4% in 2016
- (measured August-November).
+The ratio of optimal recovery decisions number to all decisions was on average
+ 86.7% during first two months of data-taking in 2017.
+ This number is significantly higher than average ratio of 53.4% in 2016.
  This means that operator has indeed selected the optimal decision more
  often after the DAQExpert introduction.
- Although this says nothing about how much beam-time is gained.
+ Although it clearly represents an improvement, it says nothing about how
+ much beam-time was gained.
 \end_layout
 
 \begin_layout Standard
@@ -253,11 +262,11 @@ There are two main categories of recovery actions: heavy - lasting usually
  for 3-4 minutes, initiated by e.g.
  stopping the run; and light - lasting 7-10 seconds initiated by e.g.
  resetting the system.
- Suboptimal decisions mean unnecessary time spend on recovery or irrelevant
+ Suboptimal decisions mean unnecessary time spent on recovery or irrelevant
  action being performed that will not solve the problem leading to same
  problematic condition after its completion.
- On average it means that each suboptimal decision means roughly 93-125
- seconds of overhead in recovery time.
+ On average it means that each suboptimal decision adds roughly 93-125 seconds
+ of overhead to recovery time.
 \end_layout
 
 \begin_layout Standard
@@ -268,7 +277,8 @@ There were 41 suboptimal decisions out of 88 in total in presented period
  In 2017 there were 7 suboptimal out of 53 decisions in total.
  This means 651-875 seconds of recovery overhead, or 12-16 seconds of overhead
  per intervention.
- Thus the improvement was roughly 28%.
+ Thus, on average the total operator recovery intervention is 31-42 seconds
+ shorter only by avoiding suboptimal recovery actions.
 \end_layout
 
 \begin_layout Subsection
@@ -277,7 +287,14 @@ Reaction time
 
 \begin_layout Standard
 This may not be the most important area to improve as it is minor part of
- total downtime (see section x).
+ total downtime - 23% (see figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Breakdown-of-downtime"
+
+\end_inset
+
+).
  Moreover it's an area where human factor plays great role.
  There is high variation depending on individual operator capabilities.
  It is though area to be addressed.
@@ -298,26 +315,26 @@ reference "fig:Reaction-time-over-zoomed"
  present trend in reaction time of the operator.
  The reaction time is now slightly lower, more predictable and variation
  is lesser.
- The average reaction time in 2016 is 81.7 seconds while in 2017 it is 45.5.
+ The average reaction time in 2016 is 81.7 seconds while in 2017 it is 60.2.
 \end_layout
 
 \begin_layout Standard
-Note that 75% of quickest decisions in 2017 has been made in first 66.5 seconds.
- In comparison to 2016, where they has been made on average in first 80.4
- seconds, it means improvement of 13.9 seconds.
+Note that 75% of quickest decisions in 2016 has been made in first 86.2 seconds.
+ In comparison to 2017, where they have been made on average in first 70.2
+ seconds, it means improvement of 15.9 seconds.
  
 \end_layout
 
 \begin_layout Standard
-Moreover, 50% of decisions were made in first 45.5 seconds in 2016 while
- in 2017 they were made in first 34.3 seconds.
- This means there is an improvement of 11.1 seconds on average.
+Moreover, 50% of decisions were made in first 44.9 seconds in 2016 while
+ in 2017 they were made in first 38.5 seconds.
+ This means there is an improvement of 6.3 seconds on average.
 \end_layout
 
 \begin_layout Standard
-Best 25% of decisions were made in first 22.9 seconds in 2016 while in 2017
- they were made in first 16.05 seconds which means there is an improvement
- of 6.85 seconds on average.
+Best 25% of decisions were made in first 22.4 seconds in 2016 while in 2017
+ they were made in first 18.6 seconds which means there is an improvement
+ of 3.7 seconds on average.
 \end_layout
 
 \begin_layout Standard
@@ -346,7 +363,21 @@ name "fig:Reaction-time-over"
 
 \end_inset
 
-Reaction time over time
+Reaction time over time.
+ Observations are presented with 5 points: minimum, lower quartile, median,
+ higher quartile, and maximum value.
+ This divides all observations of given time-slot to 4 sub-sets of equal
+ sizes.
+ Mean value is calculated over all observations.
+ For more precise presentation of first 100 seconds (lower part of the chart)
+ see figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Reaction-time-over-zoomed"
+
+\end_inset
+
+.
 \end_layout
 
 \end_inset
@@ -386,7 +417,12 @@ name "fig:Reaction-time-over-zoomed"
 
 \end_inset
 
-Reaction time over time, zoomed in
+Reaction time over time, zoomed in.
+ Observations are presented with 5 points: minimum, lower quartile, median,
+ upper quartile, and maximum value.
+ This divides all observations of given time-slot to 4 sub-sets of equal
+ sizes.
+ Mean value is calculated over all observations.
 \end_layout
 
 \end_inset
@@ -400,7 +436,7 @@ Reaction time over time, zoomed in
 \end_layout
 
 \begin_layout Subsection
-External help
+External help demand
 \end_layout
 
 \begin_layout Standard
@@ -464,7 +500,7 @@ Non-quantitative results
 \begin_layout Standard
 An improvement in the field of post mortem analysis has been made as well.
  In case of more demanding data-flow upsets where further investigation
- is required the DAQExpert brings a value.
+ is required the DAQExpert streamlines the chores of human experts.
  First of all the go-back in time functions has been introduced that enable
  human experts to access the historic data easily.
  Second of all there is more data available to support post-mortem analysis
@@ -491,15 +527,21 @@ Summary
 \end_layout
 
 \begin_layout Standard
-Both quantitative and non-quantitative result were presented in this chapter.
- The recovery action selection was improved significantly by introducing
- the expert system.
+Both quantitative and non-quantitative results were presented in this chapter.
+ The recovery action selection accuracy was improved significantly by introducin
+g the expert system.
+ This resulted in total recovery time being shorter by 31-42 seconds on
+ average.
  The optimal recovery actions are now taken on average 86.8% of time compared
  to 53.4% of time before.
- The reaction time shrunk from 81.7 to 45.5 seconds.
- The external help ...
- Non-quantitative advantages are appreciated by user groups.
- 
+ Additionally the reaction time shrunk by 21.5 seconds, from 81.7 to 60.2 seconds.
+ It means that total intervention time, including reaction time and recovery
+ procedure time is now shorter by at least 52.5 seconds on average.
+\end_layout
+
+\begin_layout Standard
+The external help ...
+ is not yet verified (waiting for 76600 phone records).
 \end_layout
 
 \end_body

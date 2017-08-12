@@ -224,9 +224,9 @@ reference "fig:Breakdown-of-downtime"
 
 \end_inset
 
- presents breakdown of dead-time to reaction time (time between problem
- occurrence and recovery action taken) and recovery time (time between recovery
- action start and end).
+ presents breakdown of downtime to reaction time (time between problem occurrenc
+e and recovery action taken) and recovery time (time between recovery action
+ start and end).
  
 \end_layout
 
@@ -251,7 +251,7 @@ centering
 
 
 \begin_inset Graphics
-	filename img/reaction-vs-recovery.png
+	filename img/intervention-time-breakdown.png
 	width 100line%
 
 \end_inset
@@ -272,19 +272,6 @@ name "fig:Breakdown-of-downtime"
 Breakdown of downtime into reaction time and recovery time.
  Right axis presents contribution of operator reaction time in total downtime.
  
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Note Greyedout
-status open
-
-\begin_layout Plain Layout
-To convey more information use chart plotting this breakdown over time
 \end_layout
 
 \end_inset
@@ -336,7 +323,14 @@ reference "fig:Breakdown-of-downtime"
 \end_inset
 
  the time spent on recovery is the main contributor to overall downtime
- of CMS.
+ of CMS 86.9% (see the figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Breakdown-of-downtime"
+
+\end_inset
+
+).
  Therefore its essential to define and select the quickest set of actions
  needed to bring the system back to operation.
  Many different recovery procedures may be distinguished, e.g.: stop the run
@@ -375,8 +369,9 @@ reference "fig:histogram-of-reaction-time"
 
 \end_inset
 
- presents histogram of reaction time in month November 2016.
- Most of the times operator reacted in the time 16-26 seconds - 23 occurrences.
+ presents histogram of reaction time over the period of 6 months of data-taking
+ (Aug 2016 - Jul 2017, excluding YETS - Dec 2016 - May 2016).
+ Most of the times operator reacted in the time 11-21 seconds - 31 occurrences.
  The aim of the project is to reduce the reaction time and as a result move
  the distribution to the left hand side.
 \end_layout
@@ -407,7 +402,7 @@ name "fig:histogram-of-reaction-time"
 
 \end_inset
 
-Histogram of reaction time (data from 2016-11-01 to 2016-11-30)
+Histogram of reaction time
 \end_layout
 
 \end_inset

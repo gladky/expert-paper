@@ -222,4 +222,5 @@ TSWLatexianTemp*
 # Lyx tmp files
 *.lyx~
 *.lyx#
-
+output
+.DS_Store
