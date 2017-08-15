@@ -180,17 +180,22 @@ facilitate post mortem analysis
 
 \end_layout
 
-\begin_layout Subsection
-Operator's challanges
+\begin_layout Standard
+The Compact Muon Solenoid (CMS) data-taking efficiency is 95%.
+ One of the major role is played by the Data Acquisition (DAQ) system which
+ controls the data-taking and filtering of produced data.
+ There is a crew of operators who supervise the operations and group of
+ human experts who designed the detector and DAQ system.
+ Together they ensure the smooth operations of the detector.
 \end_layout
 
 \begin_layout Standard
 Being able to act within seconds during operations of LHC is one of the
  challenges of the operator.
  It's a demanding responsibility that may be stressful for some people.
- DAQ system is a complex system therefore there are tools to automate certain
- operations, e.g.
- staring the run, stopping, reseting, resyncing, configuring etc.
+ The DAQ system is a complex system therefore there are tools to automate
+ certain operations, e.g.
+ starting the run, stopping, resetting, resyncing, configuring etc.
  Those tools facilitate the actions initiated by operators, however, it's
  not uncommon that the system goes into erroneous state where deeper understandi
 ng of the system is required to overcome the problem in the optimal way.
@@ -198,9 +203,8 @@ ng of the system is required to overcome the problem in the optimal way.
  problems.
  These are recovery instructions needed to resume the data-taking as soon
  as possible.
- There is no need for operators to fully understand the problem.
- They need to effectively overcome it and make sure the operations of CMS
- go smoothly.
+ Operators need to effectively select and issue them to make sure the operations
+ of CMS go smoothly.
  
 \end_layout
 
@@ -247,8 +251,8 @@ centering
 
 
 \begin_inset Graphics
-	filename img/downtime-reaction-vs-recovery.png
-	width 75line%
+	filename img/reaction-vs-recovery.png
+	width 100line%
 
 \end_inset
 
@@ -265,7 +269,22 @@ name "fig:Breakdown-of-downtime"
 
 \end_inset
 
-Breakdown of downtime (data from 2016-11-01 to 2016-11-30)
+Breakdown of downtime into reaction time and recovery time.
+ Right axis presents contribution of operator reaction time in total downtime.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Note Greyedout
+status open
+
+\begin_layout Plain Layout
+To convey more information use chart plotting this breakdown over time
 \end_layout
 
 \end_inset
@@ -283,19 +302,24 @@ Breakdown of downtime (data from 2016-11-01 to 2016-11-30)
 \end_layout
 
 \begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Areas-of-improvement"
+
+\end_inset
+
 Areas of improvement
 \end_layout
 
 \begin_layout Standard
-Reducing both reaction time and choosing correct optimal recovery action
- are the two areas for improvement that directly affect efficiency of CMS.
+Reducing reaction time and choosing correct optimal recovery action are
+ the two areas for improvement that directly affect efficiency of CMS.
  There are also other chores that this project aims to streamline.
  First is to facilitate the post mortem analysis for DAQ experts, another
- is to aggregate and to report statistical performance of the system and
- individual subsystem.
+ is to aggregate and to report a statistical analysis of the performance
+ of the system and individual subsystem.
  Last but not least is to reduce the need of external help especially outside
- of working hours and protect DAQ on-call good night sleep without deterioration
- of CMS efficiency.
+ of working hours without deterioration of CMS efficiency.
  
 \end_layout
 
@@ -315,43 +339,22 @@ reference "fig:Breakdown-of-downtime"
  of CMS.
  Therefore its essential to define and select the quickest set of actions
  needed to bring the system back to operation.
- Many different recovery procedures may be distinguished, for example:
-\end_layout
-
-\begin_layout Itemize
-stop the run and start
-\end_layout
-
-\begin_layout Itemize
-reconfigure specific subsystem
-\end_layout
-
-\begin_layout Itemize
-red and green recycle
-\end_layout
-
-\begin_layout Itemize
-resync
-\end_layout
-
-\begin_layout Itemize
-restart
-\end_layout
-
-\begin_layout Standard
-They differ significantly in terms of impact they have on system and how
+ Many different recovery procedures may be distinguished, e.g.: stop the run
+ and start, reconfigure specific subsystem, red and green recycle, resync,
+ restart.
+ They differ significantly in terms of impact they have on system and how
  much time they take to complete.
  Some of them take few seconds whereas other few minutes.
- One of the habits observed is issuing by the operator the most versatile
+ One of the observed habits is issuing by the operator the most versatile
  recovery action for most problems.
  Note that the operator on one hand can issue this general-purpose, heavy
  recovery action to be sure that it will fix the problem.
- On the other hand they can try to find out some light highly-specific to
- given circumstances action.
+ On the other hand they can try to find out some light action highly-specific
+ to given circumstances.
  It might be less stressful to follow the first solution.
  In the latter case the problem needs to be correctly identified which might
- be not the trivial task and therefor takes some time.
- The aim o the project is to help operator choose optimal recovery action.
+ be not the trivial task and therefore takes some time.
+ The aim of the project is to help operator choose optimal recovery action.
 \end_layout
 
 \begin_layout Paragraph
@@ -359,8 +362,8 @@ Reaction time
 \end_layout
 
 \begin_layout Standard
-Time from the problem occurrence to first action taken to recover is second
- area to improve.
+Time from the problem occurrence to first recovery action is second area
+ to improve.
  There are sound notifications in the control room to attract attention
  of the shifter in case data flow stops.
  Identification of the problem and selecting the recovery action takes from
@@ -373,12 +376,7 @@ reference "fig:histogram-of-reaction-time"
 \end_inset
 
  presents histogram of reaction time in month November 2016.
- Most of the times operator reacted in the time 10-15 seconds - 65 occurrences.
- The second most frequent reaction time was 5-10 seconds - 52 occurrences.
- Sometimes the reaction time was 0-5 seconds - 37 occurrences, and 15-20
- seconds 30 occurrences.
- The distribution between 20-150 seconds is roughly flat.
- There were rather rare cases of reaction 150-500 seconds.
+ Most of the times operator reacted in the time 16-26 seconds - 23 occurrences.
  The aim of the project is to reduce the reaction time and as a result move
  the distribution to the left hand side.
 \end_layout
@@ -387,11 +385,11 @@ reference "fig:histogram-of-reaction-time"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename img/reaction-time.png
+	filename img/reaction-histogram.png
 	width 100line%
 
 \end_inset
@@ -442,16 +440,16 @@ Facilitating post mortem analysis
 
 \begin_layout Standard
 After the problem occurs and is addressed usually there is a lesson to be
- learn from it to avoid similar problems in the future.
+ learnt from it to avoid similar problems in the future.
  Monitoring systems (Live Access Service, Handsaw, Hardware Database, F3Mon)
  facilitate the access to data of interest but not without the flaws.
  Some systems are offline and it's possible to access the data after the
  problem has been resolved.
  Some of them are online and to learn from the problem one needs to access
- themt while the problem is ongoing.
+ them while the problem is ongoing.
  This is not possible in time critical operations during stable beams.
  The aim of the project is to streamline the post mortem analysis by making
- all necesarry data available in one place anytime.
+ all necessary data available in one place anytime.
 \end_layout
 
 \begin_layout Paragraph
@@ -472,8 +470,8 @@ Results at a glance
 \end_layout
 
 \begin_layout Standard
-Current version of the project (2.9.0) is able to fulfill all of the requirements
- defined above.
+The current version of the project (2.9.0) is able to improve all of the areas
+ described in the previous sections.
  It helps shifters to take right decisions, reducing both reaction time
  and need of external human expert help.
  So called snapshots of the whole systems are persisted enabling easier
@@ -502,7 +500,7 @@ reference "fig:Dashboard-tool--"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -560,14 +558,14 @@ To analyze the problem afterwards human DAQ experts have at their disposal
  new tool - Browser (see figure 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Browser-tool-showing"
+reference "fig:Browser-tool-showing-1"
 
 \end_inset
 
 , 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:Browser-tool-showing-1"
+reference "fig:Browser-tool-showing"
 
 \end_inset
 
@@ -576,7 +574,7 @@ reference "fig:Browser-tool-showing-1"
  key parameters plotted.
  The former part presents transitions of different components and steps
  of the analysis in time.
- One can browse through time zooming and going backward and forward in time.
+ One can browse through time zooming and going backward and forward.
  
 \end_layout
 
@@ -695,14 +693,14 @@ reference "fig:Statistics---breakdown-causing-subsystem"
 \end_inset
 
  present accordingly breakdown of downtime per causing problem and per causing
- subsystem generate by this tool.
+ subsystem.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset ERT
@@ -758,7 +756,7 @@ Statistics - breakdown of downtime to causing problems
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset ERT
