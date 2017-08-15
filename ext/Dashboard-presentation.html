@@ -1,0 +1,202 @@
+
+<!-- saved from url=(0039)http://localhost:18081/nm/dashboard.jsp -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Notification Manager</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- 
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+	integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+	crossorigin="anonymous"></script>
+ -->
+
+
+
+
+
+
+<!-- jQuery -->
+<script type="text/javascript" src="./Dashboard-presentation_files/jquery.min.js"></script>
+
+<!-- bootstrap css -->
+<link rel="stylesheet" href="./Dashboard-presentation_files/bootstrap.min.css" type="text/css">
+
+<!-- clockpicker -->
+<link rel="stylesheet" type="text/css" href="./Dashboard-presentation_files/bootstrap-clockpicker.min.css">
+
+<!-- touchspin -->
+<link rel="stylesheet" type="text/css" href="./Dashboard-presentation_files/jquery.bootstrap-touchspin.min.css">
+
+<!-- bootstrap js -->
+<script type="text/javascript" src="./Dashboard-presentation_files/bootstrap.min.js"></script>
+
+<!-- bootpag -->
+<script src="./Dashboard-presentation_files/jquery.bootpag.min.js"></script>
+
+<!-- datetime range picker -->
+<script type="text/javascript" src="./Dashboard-presentation_files/moment.min.js"></script>
+<script type="text/javascript" src="./Dashboard-presentation_files/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="./Dashboard-presentation_files/daterangepicker.css">
+
+<!-- multiselect-->
+<link rel="stylesheet" href="./Dashboard-presentation_files/bootstrap-multiselect.css" type="text/css">
+<script type="text/javascript" src="./Dashboard-presentation_files/bootstrap-multiselect.js"></script>
+
+
+<link rel="stylesheet" href="./Dashboard-presentation_files/font-awesome.min.css">
+<link rel="stylesheet" href="./Dashboard-presentation_files/nm.css">
+
+<link href="./Dashboard-presentation_files/bootstrap-tour.min.css" rel="stylesheet">
+<script src="./Dashboard-presentation_files/bootstrap-tour.min.js"></script>
+
+<script src="./Dashboard-presentation_files/websocket-nm.js"></script>
+<script src="./Dashboard-presentation_files/websocket-expert.js"></script>
+<script src="./Dashboard-presentation_files/reconnecting-websocket.min.js"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+	
+	
+
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+
+
+
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+
+				<a class="navbar-brand" href="http://dev-daq-expert.cern.ch/"><b>DAQ</b>
+					Expert</a>
+				<div style="display: none;" id="nm-socket-address" url="ws://localhost:18081/nm/actions
+"></div>
+				<div style="display: none;" id="expert-socket-address" url="ws://localhost:18081/DAQExpert/actions
+"></div>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+				<ul class="nav navbar-nav">
+
+
+					<!-- NM DASHBOARD -->
+					<li id="dashboard"><a href="http://localhost:18081/nm/dashboard.jsp"><i class="glyphicon glyphicon-bell"></i> Dashboard</a></li>
+							
+					<!-- EXPERT BROWSER -->
+					<li><a id="expertLink" href="http://localhost:18081/DAQExpert/"><i class="glyphicon glyphicon-tasks"></i> Browser</a></li>
+
+
+					<!-- NM NOTIFICATIONS -->
+					<li id="event_occurrences"><a href="http://localhost:18081/nm/archive"><i class="glyphicon glyphicon-calendar"></i> Archive</a></li>
+
+
+
+					<!-- Turned off for P5: DELIVERY REPORT -->
+					<!-- <li class=""><a href="reports">Delivery report</a></li> -->
+
+					<!-- Turned off for P5: CONFIGURATION -->
+					<!-- <li><a href="confs">Configuration <span class="sr-only">(current)</span></a></li>
+					
+					<!-- Turned off for P5: EVENT TYPES -->
+					<!-- <li><a href="events">Event types</a></li>-->
+				</ul>
+
+
+
+				<!-- Turned off for P5: LOGOUT & SETTINGS-->
+				
+
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+
+
+
+	<div id="pageheader">
+		
+	</div>
+	<div id="body" class="container-fluid">
+		
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-8">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="jumbotron jumbotron-fluid">
+									<div id="current" class="container">
+										<h1 id="current-title" class="display-5">Out of sequence data received</h1>
+										<p id="current-description" class="lead">Run blocked by out-of-sync data from FED 1386 received by RU ru-c2e12-40-01.cms - now in syncloss state. Problem FED belongs to partition MUTFUP in TRG subsystem. This causes backpressure at FED 1380 in partition MUTFUP of TRG</p>
+										<div id="current-action" class="list-group"><div class="list-group-item">Try to recover (try up to 2 times)</div><div class="list-group-item">Stop the run. Red &amp; green recycle the subsystem. Start a new Run</div><div class="list-group-item">Problem not fixed: Call the DOC of TRG (subsystem that caused the SyncLoss)</div><div class="list-group-item">Problem fixed: Make an e-log entry.Call the DOC TRG (subsystem that caused the SyncLoss) to inform about the problem</div></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="panel panel-default">
+							<!-- Default panel contents -->
+							<div class="panel-heading">Recent Suggestions</div>
+							<div class="panel-body">
+								<div id="conditions" class="list-group"><div id="c-21" class="list-group-item list-group-item-action flex-column align-items-start"><div><p class="pull-right"><small>2017-03-20 13:49:02 CET</small><span> </span><span class="label label-warning" id="s-21">Ongoing</span></p><h4 class="mb-1">FED deadtime</h4></div><p class="mb-1">Deadtime of fed(s) 1380 in subsystem(s) TRG is greater than 5.0%</p><small></small></div></div>
+								<p id="condition-list-empty-msg" style="display: none;">no recent suggestions</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="panel panel-default">
+					<!-- Default panel contents -->
+					<div class="panel-heading">All Events</div>
+					<div class="panel-body">
+						<div id="content" class="list-group"><div id="15" class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><span class="pull-right"><span class="label label-info"><span class="glyphicon glyphicon-music "></span><span> </span><span>Default</span></span><span> </span><small>2017-03-20 13:49:02 CET</small></span><h5 class="mb-1">Start Out of sequence data received</h5></div><small>Run blocked by out-of-sync data from FED 1386 received by RU ru-c2e12-40-01.cms - now in syncloss state. Problem FED belongs to partition MUTFUP in TRG subsystem. This causes backpressure at FED 1380 in partition MUTFUP of TRG</small></div><div id="14" class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><span class="pull-right"><span class="label label-info"><span class="glyphicon glyphicon-music "></span><span> </span><span>Default</span></span><span> </span><small>2017-03-20 13:49:02 CET</small></span><h5 class="mb-1">Start No rate when expected</h5></div><small>No rate when expected</small></div><div id="13" class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><span class="pull-right"><small>2017-03-20 13:49:02 CET</small></span><h5 class="mb-1">Start FED deadtime</h5></div><small>Deadtime of fed(s) 1380 in subsystem(s) TRG is greater than 5.0%</small></div><div id="12" class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><span class="pull-right"><small>2017-03-20 13:48:42 CET</small></span><h5 class="mb-1">End No rate when expected</h5></div><small>No rate when expected</small></div><div id="11" class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><span class="pull-right"><small>2017-03-20 13:48:39 CET</small></span><h5 class="mb-1">DAQ state: RunBlocked</h5></div><small>New DAQ state identified</small></div><div id="10" class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><span class="pull-right"><small>2017-03-20 13:48:39 CET</small></span><h5 class="mb-1">Level Zero State: RunBlocked</h5></div><small>New Level zero state identified</small></div><div id="9" class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><span class="pull-right"><span class="label label-info"><span class="glyphicon glyphicon-music "></span><span> </span><span>Default</span></span><span> </span><small>2017-03-20 13:48:32 CET</small></span><h5 class="mb-1">Start No rate when expected</h5></div><small>No rate when expected</small></div><div id="8" class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><span class="pull-right"><small>2017-03-20 13:00:01 CET</small></span><h5 class="mb-1">DAQ state: Running</h5></div><small>New DAQ state identified</small></div><div id="7" class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><span class="pull-right"><small>2017-03-20 13:00:01 CET</small></span><h5 class="mb-1">TCDS State: Running</h5></div><small>New TCDS state identified</small></div><div id="6" class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><span class="pull-right"><small>2017-03-20 13:00:01 CET</small></span><h5 class="mb-1">Level Zero State: Running</h5></div><small>New Level zero state identified</small></div><div id="5" class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><span class="pull-right"><small>2017-03-20 13:00:01 CET</small></span><h5 class="mb-1">Run: 289670</h5></div><small>New run has been identified</small></div><div id="4" class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><span class="pull-right"><small>2017-03-20 13:00:01 CET</small></span><h5 class="mb-1">LHC Machine Mode: SHUTDOWN</h5></div><small>New LHC Machine mode identified</small></div><div id="3" class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><span class="pull-right"><small>2017-03-20 13:00:01 CET</small></span><h5 class="mb-1">LHC Beam Mode: NO BEAM</h5></div><small>New LHC beam mode identified</small></div><div id="2" class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><span class="pull-right"><small>2017-03-20 13:00:01 CET</small></span><h5 class="mb-1">Session: 290531</h5></div><small>DAQ session</small></div><div id="1" class="list-group-item list-group-item-action flex-column align-items-start"><div class="d-flex w-100 justify-content-between"><span class="pull-right"><span class="label label-info"><span class="glyphicon glyphicon-music "></span><span> </span><span>New run</span></span><span> </span><small>2017-03-20 13:00:01 CET</small></span><h5 class="mb-1">Start Run ongoing</h5></div><small>Run is ongoing according to TCDS state</small></div></div>
+						<p id="event-list-empty-msg" style="display: none;">no recent events</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+		<p>
+					<small>Expert websocket status: <span id="expert-status" class="badge">Connected</span> NM websocket status: <span id="nm-status" class="badge">Connected</span></small>
+				</p>
+		</div>
+	</div>
+
+    
+	</div>
+	<div id="pagefooter">
+		
+	</div>
+
+
+
+
+
+
+
+</body></html>
