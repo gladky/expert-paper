@@ -165,7 +165,8 @@ Three parameters have been identified to adequately represent the success
 Expert was introduced in mid 2016 but operators were instructed to use it
  in the early 2017.
  All comparisons are based on 6 months of data-taking (August 2016 - July
- 2017, excluding YETS that lasted December 2016 - April 2017, and May 2017).
+ 2017, excluding Year End Technical Stop (YETS) that lasted December 2016
+ - April 2017, and May 2017).
  Months December of 2016 and May of 2017 were excluded due to special conditions
  of data-taking and the fact that the operations lasted only for few days.
  This gives four months from 2016 where there was no DAQExpert support and
@@ -189,7 +190,7 @@ reference "subsec:Areas-of-improvement"
 
 , the recovery time is major part of total downtime (77% of total downtime),
  thus it is essential to minimize it by choosing the most appropriate and
- time-efficient - optimal - recovery actions.
+ time-efficient recovery actions (optimal recovery actions).
  Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -524,6 +525,16 @@ Moreover there are statistics available.
 
 \begin_layout Subsection
 Summary
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+calculate the cost of the beam gained vs contract price
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

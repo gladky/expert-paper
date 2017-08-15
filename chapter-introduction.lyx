@@ -193,7 +193,7 @@ The Compact Muon Solenoid (CMS) data-taking efficiency is 95%.
 Being able to act within seconds during operations of LHC is one of the
  challenges of the operator.
  It's a demanding responsibility that may be stressful for some people.
- The DAQ system is a complex system therefore there are tools to automate
+ The DAQ system is a complex system, therefore there are tools to automate
  certain operations, e.g.
  starting the run, stopping, resetting, resyncing, configuring etc.
  Those tools facilitate the actions initiated by operators, however, it's
