@@ -194,7 +194,7 @@ Moreover, the nature of the project foresees frequent logic-related updates
  If there is new recovery solution advised by sub-system experts the according
  knowledge needs to be introduced to the system.
  Finally the high availability needs to be maintained, as each downtime
- system means no support for the operators.
+ of the system means no support for the operators.
  
 \end_layout
 
