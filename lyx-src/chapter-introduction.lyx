@@ -380,7 +380,7 @@ reference "fig:histogram-of-reaction-time"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -495,7 +495,7 @@ reference "fig:Dashboard-tool--"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
@@ -577,7 +577,7 @@ reference "fig:Browser-tool-showing"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
