@@ -11,9 +11,41 @@
 
 \author{Maciej Gladki}
 
-\address{on behalf of the CMS Collaboration, CERN, Switzerland}
-
 \ead{maciej.gladki@cern.ch}
+
+
+\address{on behalf of the CMS Collaboration, CERN, Geneva, Switzerland
+\vspace{1mm}
+
+\scriptsize{Jean-Marc Andre (5), Ulf Behrens (1), James Branson (4), Olivier Chaze(2), Sergio Cittolin (4), Cristian Contescu (5), Georgiana-Lavinia Darlea (6), Christian Deldicque (2), Zeynep Demiragli (6), Marc Dobson (2), Nicolas Doualot (5), Samim Erhan (3), Jonathan Richard Fulcher (2), Dominique Gigi (2), Frank Glege (2), Guillelmo Gomez-Ceballos (6), Jeroen Hegeman (2), Andre Holzner (4), Mindaugas Janulisa (2), Michael Lettrich (2), Frans Meijers (2), Emilio Meschi (2), Remigius K. Mommsen (5), Srecko Morovic (2), Vivian O'Dell (5), Samuel Johan Orn(2), Luciano Orsini (2), Ioannis Papakrivopoulos (7), Christoph Paus (6), Petia Petrova (2), Andrea Petrucci (8), Marco Pieri (4), Dinyar Rabady (2), Attila Racz (2), Thomas Reis (2), Hannes Sakulin (2), Christoph Schwick (2), Dainius Simeleviciusa (2), Cristina Vazquez Velez(2), Michail Vougioukas (2), Petr Zejdl (5)
+
+\vspace{1mm}
+\tiny{
+1. DESY, Hamburg, Germany
+
+2. CERN, Geneva, Switzerland
+
+3. University of California, Los Angeles, Los Angeles, California, USA
+
+4. University of California, San Diego, San Diego, California, USA
+
+5. FNAL, Chicago, Illinois, USA
+
+6. Massachusetts Institute of Technology, Cambridge, Massachusetts, USA
+
+7. Technical University of Athens, Athens, Greece
+
+8. Rice University, Houston, Texas, USA
+
+a) Also at Vilnius University, Vilnius, Lithuania
+
+b) Also at CERN, Geneva, Switzerland\\
+
+}
+}
+}
+
+
 
 \begin{abstract}
 The efficiency of the Data Acquisition (DAQ) of the Compact Muon Solenoid (CMS) experiment for LHC Run-2 is constantly being improved. A~significant factor on the data taking efficiency is the experience of the DAQ operator. One of the main responsibilities of the DAQ operator is to carry out the proper recovery procedure in case of failure in data-taking. At the start of Run-2, understanding the problem and finding the right remedy could take a considerable amount of time, sometimes up to minutes. This was caused by the need to manually diagnose the error condition and to find the right recovery procedure out of an extended list which changed frequently over time. Operators heavily relied on the support of on-call experts, also outside working hours. Wrong decisions due to time pressure sometimes lead to an additional overhead in recovery time.
@@ -26,12 +58,12 @@ The data-taking efficiency of the Compact Muon Solenoid (CMS) \cite{cms} experim
 
 Being able to act within seconds during operations of LHC is one of the challenges of the operator. The DAQ system is a complex, therefore there are tools to automate certain operations, e.g. starting the run, stopping, resetting, resyncing, configuring etc. Those tools facilitate the actions initiated by operators, however, it's not uncommon that the system goes into erroneous state where deeper understanding of the system is required to overcome the problem in the optimal way. Experts of all subsystems prepare instructions for operators for dealing with specific problems. These are recovery instructions needed to resume the data-taking as soon as possible. Operators need to effectively select and issue them to make sure the operations of CMS go smoothly.
 
-Over a time the list of recovery instructions grew. Despite its straightforward and easy form, it takes considerable amount of time for operator to find the correct remedy when needed. This part of intervention, the reaction time, considered to last between a problem occurrence and a subsequent recovery action taken, is one of two concerns. Wrong or suboptimal decisions were not uncommon as well. These led to increased recovery time, considered to last between a recovery action beginning and its end. Both reaction time and recovery time are referred as intervention time.
+Over a time the list of recovery instructions grew. Despite its straightforward and easy form, it takes considerable amount of time for the operator to find the correct remedy when needed. This part of intervention, the reaction time, considered to last between a problem occurrence and a subsequent recovery action taken, is one of two concerns. Wrong or suboptimal decisions were not uncommon as well. These led to increased recovery time, considered to last between a recovery action beginning and its end. Both reaction and recovery time are referred as the intervention time.
 
-Reducing the reaction time and selecting the optimal recovery action are the two areas for improvement that will reduce the overall intervention time and directly affect the efficiency of CMS. There are also other chores that this project aims to streamline. First is to facilitate the post mortem analysis for DAQ experts, another is to aggregate and to report a statistical analysis of the performance of the system and individual subsystems. Last but not least is to reduce the need of a external help especially outside of working hours without a deterioration of CMS efficiency. 
+Reducing the reaction time and selecting the optimal recovery action are the two areas for improvement that will reduce the overall intervention time and directly affect the efficiency of CMS. We also aim to facilitate the post mortem analysis for DAQ experts, to aggregate and to report a statistical analysis of the performance of the system and to reduce the need of a~external help especially outside of working hours without a deterioration of CMS efficiency. 
 
 \subsection{Selecting the optimal recovery action}
-The time spent recovering is the main contributor to the overall intervention time in CMS and amounts to 82\%. Therefore its essential to define and select the quickest set of actions needed to bring the system back to operation. Many different recovery procedures may be distinguished, e.g.: stoping and starting the run, (re)configuring a specific subsystem, (re)initializing a subsystem, sending resynchronization or hard reset commands through the Timing Trigger and Control system (TTC). They differ significantly in terms of impact they have on the system and how much time they take to complete. Some of them take few seconds whereas others few minutes. One of the observed suboptimal decisions is issuing by the operator the most versatile and heavy recovery action for most problems. It gives the highest chance to recover but in most cases it means an overhead in recovery time. The aim of the project is to help operator make optimal decisions.
+The time spent recovering is the main contributor to the overall intervention time in CMS and amounts to 82\%. Therefore its essential to define and select the quickest set of actions needed to bring the system back to operation. Many different recovery procedures may be distinguished, e.g.: stoping and starting the run, (re)configuring and (re)initializing a specific subsystem, sending resynchronization or hard reset commands through the Timing Trigger and Control system (TTC). They differ significantly in terms of impact they have on the system and how much time they take to complete. Some of them take few seconds whereas others few minutes. One of the observed suboptimal operator's decisions is to issue the most versatile and heavy recovery action for most problems. It gives the highest chance to recover but in most cases it means an overhead in recovery time. We want to help the operator make optimal decisions.
 
 \subsection{Reaction time} \label{reaction-section}
 The time from the problem occurrence to the first recovery action is a second area to improve. There are sound notifications in the control room to attract attention of the shifter in a case data flow stops. Identification of the problem and selecting the recovery action takes from couple of seconds up to minutes. Figure~\ref{reaction-histogram} presents the histogram of a reaction time over the period of 6~months of data-taking (August 2016 - July 2017, excluding Year End Technical Stop (YETS) that lasted December 2016 - April 2016, month May of 2017 was excluded due to special conditions of data-taking), hereinafter referred as the {\it comparison period}. Most of the times the operator reacted in the time 10-20 seconds - 33 occurrences. The aim of the project is to reduce the reaction time.
@@ -42,7 +74,7 @@ The time from the problem occurrence to the first recovery action is a second ar
 \caption{\label{reaction-histogram}Reaction time histogram.}
 \end{minipage}\hspace{2pc}%
 \begin{minipage}{18pc}
-\includegraphics[width=18pc]{logic-module-hierarchy2.png}
+\includegraphics[width=18pc]{logic-module-hierarchy.png}
 \caption{\label{subsetoflm}Subset of Logic Module hierarchy.}
 \end{minipage} 
 \end{figure}
@@ -64,7 +96,7 @@ The system consists of three services. Firstly the {\it Snapshot Service} aggreg
 \subsection{External forces}
 It is highly likely that the project's lifetime, like in many other cases at CERN, will be more than a~decade and will be maintained by different people over time. Thus, one of the main constraints was to avoid short-lived and highly specific technologies that would make it difficult to new team members to quickly become productive. It needs to be easy to understand and modify requiring little effort to learn. Rule-based engines have beed evaluated in the past by the CMS DAQ group and were considered not suitable due to the steep learning curve. Introducing additional language was not an option. The solution needed to be based on current skill set of the team members and as simple as possible.
 
-Moreover, the nature of the project foresees frequent logic-related updates possibly introduced by many authors. If there is a new recovery solution advised by sub-system experts the according knowledge needs to be introduced in to the system. Finally a high availability needs to be assured, as each downtime of the system means no support for the operators and possibly extended downtime of CMS. 
+Moreover, the nature of the project foresees frequent logic-related updates possibly introduced by many authors. Whenever a new recovery solution is advised by sub-system experts the according knowledge needs to be introduced in to the system. Finally a high availability is essential, as each downtime of the system means no support for the operators and possibly extended downtime of CMS. 
 
 As a result the new expert framework has been designed from ground up. It allows to define the knowledge in imperative language popular in the group - Java. The knowledge is organized in small independent Logic Modules which are building blocks of the system.
 
@@ -81,6 +113,7 @@ Its common in the industry that the expert knowledge is defined in a declarative
 
 
 \begin{itemize}
+\itemsep0em
 \item each LM defines one condition,
 \item the definition of condition is placed in the satisfy method,
 \item the method returns true if condition is satisfied and false otherwise,
@@ -104,14 +137,14 @@ A LM may play two roles: it might be a sub-step of the analysis ({\it Expected r
 
 \section{Results}
 
-The current version of the service (2.9.0) already improves all of the areas described in the first section. Operators of the DAQ system at CMS have now at their disposal a tool delivering recovery action suggestions in the real-time - the Dashboard (see figure~\ref{dashboard-tool}). Whenever the problem occurs the tool is showing the description of the problem and the optimal steps to recover. It helps shifters to take right decisions, reducing both reaction time and need of external human expert help.
+The current version of the service (2.9.0) improves all of the outlined areas. Operators of the DAQ system at CMS have now at their disposal a tool delivering recovery action suggestions in the real-time - the Dashboard (see figure~\ref{dashboard-tool}). Whenever the problem occurs the tool is showing the description of the problem and the optimal steps to recover. It helps shifters to take right decisions, reducing both reaction time and need of external human expert help.
 
 Measuring the success of the project was quite challenging task. The ultimate goal is to increase the efficiency of data-taking at the CMS. However the overall efficiency is not an adequate parameter as there are many different factors that interfere. The detector is constantly being improved, there were major upgrades in both hardware and software that influenced the final efficiency of the CMS. The feedback of operators and human experts is important as they are the target user groups of the system. As much as they appreciate the new system, the verbal feedback cannot be used as a measure of success as it is not quantitive and it is subjective. Three parameters have been identified to adequately represent the success of the project: accuracy of the recovery action selection, reaction time of the operators and demand of the external help. They are practically independent of other factors which make them reliable means of comparison.
 
-The DAQExpert was introduced in mid 2016 but operators were instructed to use it in the early 2017. All comparisons are based on {\it comparison period} (see section \ref{reaction-section}) which gives four months from 2016 where there was no{ \it DAQExpert} support and two months from 2017 where the support was available. 
+The DAQExpert was introduced in mid 2016 but operators were instructed to use it in the early 2017. All comparisons are based on {\it comparison period} (see section \ref{reaction-section}) which gives four months from 2016 where there was no {\it DAQExpert} support and two months from 2017 where the support was available. 
 
 
-\subsection{Recovery selection correctness}
+\subsection{Intervention time}
 
 The improvement was mostly observed in the number of optimal recovery decisions taken by operators in case of data-flow upsets. As stated before the recovery time is major part of total intervention time (82\%), thus it is essential to minimize it by choosing the most appropriate and time-efficient recovery actions (optimal recovery actions). 
 
@@ -119,9 +152,7 @@ There are two main categories of recovery actions: heavy - lasting usually for 3
 
 In 2016, during data-taking, operators had no guidance and out of 36 data-taking failures, 32 times the optimal decision was taken. In 2017 there were 29 data-taking failures and all of the decisions were optimal.
 
-\subsection{Reaction time}
-
-This may not be the most important area to improve as it is minor part of total intervention time - 18\%. There is high variation depending on individual operator capabilities. The reaction time has slightly improved from 67 seconds in 2016 to 60 seconds in 2017. This is an area where human factor plays great role and bypassing the operators will certainly assure better results.
+The reaction time is a secondary area to improve as it is minor part of total intervention time - 18\%. There is high variation depending on individual operator capabilities. The reaction time has slightly improved from 67 seconds in 2016 to 60 seconds in 2017. This is an area where human factor plays great role and bypassing the operators will certainly assure better results.
 
 
 \subsection{Non-quantitative results}
