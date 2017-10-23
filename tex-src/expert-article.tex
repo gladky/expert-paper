@@ -25,23 +25,41 @@
 
 
 \begin{abstract}
-The efficiency of the Data Acquisition (DAQ) of the Compact Muon Solenoid (CMS) experiment for LHC Run 2 is constantly being improved. A~significant factor affecting the data taking efficiency is the experience of the DAQ operator. One of the main responsibilities of the DAQ operator is to carry out the proper recovery procedure in case of failure of data-taking. At the start of Run 2, understanding the problem and finding the right remedy could take a considerable amount of time (up to many minutes). Operators heavily relied on the support of on-call experts, also outside working hours. Wrong decisions due to time pressure sometimes lead to an additional overhead in recovery time. To increase the efficiency of CMS data-taking we developed a new expert system, the DAQExpert, which provides shifters with optimal recovery suggestions instantly when a failure occurs. DAQExpert is a~web application analyzing frequently updating monitoring data from all DAQ components and identifying problems based on expert knowledge expressed in small, independent logic-modules written in Java. Its results are presented in real-time in the control room via a web-based GUI and a sound-system in a form of short description of the current failure, and steps to recover.
+The efficiency of the Data Acquisition (DAQ) of the Compact Muon Solenoid (CMS) experiment for LHC Run 2 is constantly being improved. A~significant factor affecting the data taking efficiency is the experience of the DAQ operator. One of the main responsibilities of the DAQ operator is to carry out the proper recovery procedure in case of failure of data-taking. At the start of Run 2, understanding the problem and finding the right remedy could take a considerable amount of time (up to many minutes). Operators heavily relied on the support of on-call experts, also outside working hours. Wrong decisions due to time pressure sometimes lead to an additional overhead in recovery time. To increase the efficiency of CMS data-taking we developed a new expert system, the DAQExpert, which provides shifters with optimal recovery suggestions instantly when a failure occurs. DAQExpert is a~web application analyzing frequently updating monitoring data from all DAQ components and identifying problems based on expert knowledge expressed in small, independent logic-modules written in Java. Its results are presented in real-time in the control room via a~web-based GUI and a sound-system in a form of short description of the current failure, and steps to recover.
 \end{abstract}
 
 \section{Introduction}
-The data-taking efficiency of the Compact Muon Solenoid (CMS) \cite{cms} experiment at CERN in 2016 during proton-proton physics, understood as the delivered luminosity, was 92.7\%, according to Web Based Monitoring (WBM). One of the major roles in operation is played by the Data Acquisition (DAQ) system, which controls the detector readout, event-building and operations of the event filtering farm \cite{daq}. The smooth operation of the experiment and its resulting high efficiency is ensured through constant supervision by a crew of operators and experts.
+The data-taking efficiency of the Compact Muon Solenoid (CMS) \cite{cms} experiment at CERN in 2016 during proton-proton physics, understood as the ratio of recorded over delivered luminosity, was 92.7\%, according to Web Based Monitoring (WBM). One of the major roles in operation is played by the Data Acquisition (DAQ) system, which controls the detector readout, event-building and operations of the event filtering farm \cite{daq}. The smooth operation of the experiment and its resulting high efficiency are ensured through constant supervision by a crew of operators and experts.
 
-Being able to act within seconds during operations of LHC is one of the challenges of the operator. In order to simplify the operation of the complex DAQ system several tools exist to automate certain operations such as starting and stopping a run, configuring detector hardware and ensuring proper synchronization etc. These tools facilitate the actions initiated by operators. However, it is not uncommon that the system goes into erroneous states where deeper understanding of the system is required to solve the problem in an optimal way. Experts of all subsystems prepare recovery instructions needed to resume data taking in an optimal way and to resume data taking as quickly as possible. Operators need to effectively select and execute them to make sure CMS operates smoothly.
+Being able to act within seconds during operations of LHC is one of the challenges of the operator. In order to simplify the operation of the complex DAQ system several tools exist to automate certain operations such as starting and stopping a run, configuring detector hardware and ensuring proper synchronization etc.\cite{assistance}. These tools facilitate the actions initiated by operators. However, it is not uncommon that the system goes into erroneous states where deeper understanding of the system is required to solve the problem in an optimal way. Experts of all subsystems prepare recovery instructions needed to resume data taking in an optimal way and as quickly as possible. Operators need to effectively select and execute them to make sure CMS operates smoothly.
 
 Over the course of the last few years the list of recovery instructions became larger and more complex. Despite its straightforward form, it takes considerable time for the operator to find the correct remedy when needed. This part of the intervention, the reaction time, defined as the time between the problem occurrence and the start of the corresponding recovery action, is one of two concerns. Wrong or suboptimal decisions were not uncommon. These led to increased recovery time, defined as the time elapsed from the beginning of the recovery action to the resuming of data taking. The sum of the reaction and recovery time are referred to as the intervention time.
 
-Reducing the reaction time and selecting the optimal recovery action are the two areas for improvement that will reduce the overall intervention time and directly affect the efficiency of CMS. We also aim to facilitate the post mortem analysis for human DAQ experts, to aggregate and to report a statistical analysis of the performance of the system and to reduce the need of a~external help especially outside of working hours without a deterioration of CMS efficiency. 
+Reducing the reaction time and selecting the optimal recovery action are the two areas for improvement that will reduce the overall intervention time and directly affect the efficiency of CMS. We also aim to facilitate the post mortem analysis for human DAQ experts, to aggregate and to report a statistical analysis of the performance of the system and to reduce the need for external help especially outside of working hours without a deterioration of CMS efficiency. In order to achieve these goals we have developed a new expert system, the DAQExpert. It completely replaces the Perl based DAQ Doctor \cite{daqdoctor} which addressed these issues in the Run 1 DAQ system, but which only had rudimentary functionalities for the Run 2 DAQ system.
 
 \subsection{Selecting the optimal recovery action}
-The time spent recovering is the main contributor to the overall intervention time in CMS and amounts to 82\%. Therefore, it is essential to define and select the quickest set of actions needed to bring the system back to operation. Many different recovery procedures may be distinguished, e.g.: stopping and starting a run, (re)configuring and (re)initializing a specific subsystem, sending resynchronization or hard reset commands through the Timing Trigger and Control System (TTCS). They differ significantly in terms of impact they have on the system and how much time they take to complete. Some of them take a few seconds whereas others last for minutes. A common operator mistake is to issue the most general recovery procedure which solves most types of problems but takes longest time instead of using a faster problem specific action. DAQExpert was designed to help the operator make optimal decisions.
+The time spent recovering is the main contributor to the overall intervention time in CMS and amounts to 82\%. Therefore, it is essential to define and select the quickest set of actions needed to bring the system back to operation. Many different recovery procedures may be distinguished, e.g.: stopping and starting a run, (re)configuring and (re)initializing a specific subsystem, sending resynchronization or hard reset commands through the Timing Trigger and Control (TTC) system. They differ significantly in terms of impact they have on the system and how much time they take to complete. Some of them take a few seconds whereas others last for minutes. A common operator mistake is to issue the most general recovery procedure which solves most types of problems but takes longest time instead of using a faster problem specific action. DAQExpert was designed to help the operator make optimal decisions.
 
 \subsection{Reaction time} \label{reaction-section}
 The second area to improve is the time between occurrence of the problem and the first recovery action. There are sound notifications in the control room to draw the attention of the shifter when data flow stops. Identification of the problem and selecting the recovery action takes from a few seconds up to some minutes. We define the {\it comparison period} as the period of six months of data-taking (August 2016 - July 2017, excluding the Year End Technical Stop that lasted from December 2016 to April 2016, the month of May of 2017 was excluded due to special conditions of data-taking). Figure~\ref{reaction-histogram} shows the histogram of a reaction time for {\it comparison period}. Most of the times the operator reacted within 20-30 seconds. The aim of the project is to reduce the reaction time.
+
+
+\subsection{Facilitating post mortem analysis}
+Numerous monitoring systems enable access to data necessary to analyze the problem, albeit with some caveats. Some data are available after the problem has been resolved, some only while the problem is ongoing. In many cases some insight can be gained from the monitoring data on how to avoid similar problems in the future. The aim of the project is also to streamline the post mortem analysis by making both historic and real-time data easily available in the same way at any moment.
+
+
+
+\section{Expert system and architecture}
+
+The system consists of three services. Firstly, the {\it Snapshot Service} aggregates all monitoring information into a snapshot and persists it. Secondly, the { \it Reasoning Service} applies the knowledge of the experts on the snapshots. Finally, the { \it Notification Manager } manages and delivers notifications, including e-mail and live suggestions and sound notifications in the control room. The { \it DAQExpert } brings all parts together in the form of a web application enabling browsing of the whole history of monitoring data to view the analysis and to manage notifications. The design of the {\it Reasoning Services} and technologies used were driven by external forces.
+
+\subsection{External forces}
+The project's lifetime is expected to be up to 2024 and different developers will maintain it. Thus, one of the main constraints was to avoid short-lived and highly specific technologies which would make it difficult for new team members to quickly become productive. It needs to be easy to understand and modifiable, requiring little effort to learn. Rule-based engines have beed evaluated in the past by the CMS DAQ group and were considered unsuitable due to their steep learning curve. Introducing an additional programming language was not an option. The solution needed to be based on the current skill set of the team members and as simple as possible.
+
+Moreover, the nature of the project foresees frequent logic-related updates, possibly introduced by many authors. Whenever a new recovery solution is advised by sub-system experts the corresponding knowledge needs to be introduced into the system. Finally, high availability is essential, as downtime of the system implies lack of support for the operators and possibly extended downtime of CMS. 
+
+As a result, the new expert framework has been designed from the ground up. It allows to define the knowledge in imperative language popular in the group - Java. The knowledge is organized in small independent Logic Modules that are building blocks of the system.
+
 
 \begin{figure}[h]
 \begin{minipage}{18pc}
@@ -53,26 +71,6 @@ The second area to improve is the time between occurrence of the problem and the
 \caption{\label{subsetoflm}Subset of Logic Module hierarchy (white - observed parameters, blue - LM). }
 \end{minipage} 
 \end{figure}
-
-
-
-\subsection{Minimizing external help}
-In case the operators cannot fix the problem themselves they can always rely on help from DAQ on-call experts who are available 24/7. A scheme where operators cope with problems without the need for external help is desirable. Minimizing the number of phone calls, especially outside working hours, without deterioration of CMS data taking efficiency is one of the goals of the project.
-
-
-\subsection{Facilitating post mortem analysis}
-Numerous monitoring systems enable access to data necessary to analyze the problem, albeit with some caveats. Some data are available after the problem has been resolved, some only while the problem is ongoing. In many cases some insight can be gained from the monitoring data on how to avoid similar problems in the future. The aim of the project is also to streamline the post mortem analysis by making both historic and real-time data easily available in the same way at any moment.
-
-\section{Expert system and architecture}
-
-The system consists of three services. Firstly, the {\it Snapshot Service} aggregates all monitoring information into a snapshot and persists it. Secondly, the { \it Reasoning Service} applies the knowledge of the experts on the snapshots. Finally, the { \it Notification Manager } manages and delivers notifications, including e-mail and live suggestions and sound notifications in the control room. The { \it DAQExpert } brings all parts together in the form of a web application enabling browsing of the whole history of monitoring data to view the analysis and to manage notifications. The design of the {\it Reasoning Services} and technologies used were driven by external forces.
-
-\subsection{External forces}
-The project's lifetime is expected to be more than a~decade and different developers will maintain it. Thus, one of the main constraints was to avoid short-lived and highly specific technologies which would make it difficult for new team members to quickly become productive. It needs to be easy to understand and modifiable, requiring little effort to learn. Rule-based engines have beed evaluated in the past by the CMS DAQ group and were considered unsuitable due to their steep learning curve. Introducing an additional programming language was not an option. The solution needed to be based on the current skill set of the team members and as simple as possible.
-
-Moreover, the nature of the project foresees frequent logic-related updates, possibly introduced by many authors. Whenever a new recovery solution is advised by sub-system experts the corresponding knowledge needs to be introduced into the system. Finally, high availability is essential, as downtime of the system implies lack of support for the operators and possibly extended downtime of CMS. 
-
-As a result, the new expert framework has been designed from the ground up. It allows to define the knowledge in imperative language popular in the group - Java. The knowledge is organized in small independent Logic Modules that are building blocks of the system.
 
 
 \subsection{Monitoring, aggregation and data flow}
@@ -104,7 +102,7 @@ A LM may play two roles: it might be a sub-step of the analysis ({\it Expected r
 \item{\it No rate} - the average {\it FED rate} was 0, there was no data flowing
 \item{\it Expected rate} - the {\it TCDS state}  and {\it Level Zero state} indicate that no recovery action is being issued at the moment, a run is ongoing according to output of {\it Run ongoing} LM and the readout rate is expected to be non-zero.
 \item {\it Dataflow stuck} - this summarizes outputs of two LMs: {\it No rate} and {\it Expected rate}, and returns true if both are asserted, meaning that the data-flow is stuck,
-\item {\it FED stuck} - starts the analysis when the {\it Dataflow stuck} condition is found. It performs specific checks to find FED which caused the data flow to stop. This LM identifies the problem precisely thus it contains instructions for the operator, including a detailed description of the problem and a recovery suggestion.
+\item {\it FED stuck} - starts the analysis when the {\it Dataflow stuck} condition is found. It performs specific checks to find the FED(s) which caused the data flow to stop. This LM identifies the problem precisely thus it contains instructions for the operator, including a detailed description of the problem and a recovery suggestion.
 \end{itemize}
 
 
@@ -129,14 +127,9 @@ In 2016, during data-taking, operators had no automatic guidance and out of 36 d
 The reaction time is a secondary metric to improve, as it is a minor (18\%) part of the total intervention time. There is a large variation depending on individual operator experience. The reaction time has slightly improved from 67 seconds in 2016 to 60 seconds in 2017. This is an area where the human factor plays an important role and bypassing the operators will certainly yield better results.
 
 
-\subsection{Non-quantitative results}
-An improvement in the post-mortem analysis has also been made. In the case of more demanding data-flow interruptions, where further investigation is required, the{ \it DAQExpert} streamlines the chores of human experts. First, the go-back in time functions have been introduced that enable human experts to access the historic data easily with the timeline view ({\it Browser}), shown in figure~\ref {browser-tool}. Secondly, there are more data available to support post-mortem analysis than ever before. All monitored quantities of the system are kept for some period of time for debugging purposes.
-
-
-
 \begin{figure}[h]
 \begin{minipage}{18pc}
-\includegraphics[width=18pc]{tool-dashboard2.png}
+\includegraphics[width=18pc]{tool-dashboard.png}
 \caption{\label{dashboard-tool}Dashboard - tool to show suggestions in real time.}
 \end{minipage} \hspace{2pc}%
 \begin{minipage}{18pc}
@@ -145,16 +138,21 @@ An improvement in the post-mortem analysis has also been made. In the case of mo
 \end{minipage}
 \end{figure}
 
+\subsection{Non-quantitative results}
+An improvement in the post-mortem analysis has also been made. In the case of more demanding data-flow interruptions, where further investigation is required, the{ \it DAQExpert} streamlines the chores of human experts. First, the go-back in time functions have been introduced that enable human experts to access the historic data easily with the timeline view ({\it Browser}), shown in figure~\ref {browser-tool}. Secondly, there are more data available to support post-mortem analysis than ever before. All monitored quantities of the system are kept for some period of time for debugging purposes.
 
 \subsection{Summary}
-Both quantitative and qualitative results were presented in this chapter. The recovery action selection accuracy was improved by introducing the expert system. There were no suboptimal recovery decisions observed after deployment of {\it DAQExpert}. Whereas, before they occurred 11\% of the time. Additionally the average reaction time shrunk from 67 to 60 seconds, which means that the total intervention time, including reaction time and recovery procedure time, has been resuced by at least 10 seconds. One major improvement to be implemented in the future is to bypass the operator whenever possible. This will shorten the reaction time to a few seconds.
+Both quantitative and qualitative results were presented in this chapter. The recovery action selection accuracy was improved by introducing the expert system. There were no suboptimal recovery decisions observed after deployment of {\it DAQExpert}. Whereas, before they occurred 11\% of the time. Additionally the average reaction time shrunk from 67 to 60 seconds, which means that the total intervention time, including reaction time and recovery procedure time, has been reduced by at least 10 seconds. One major improvement to be implemented in the future is to bypass the operator whenever possible. This will shorten the reaction time to a few seconds.
 External help demand has not yet been quantified. This area is of great interest for on-call human experts as it has the potential to reduce their workload. The number of phone calls (normalized by the number of problems) to the on-call experts before and after {\it DAQExpert} introduction may reveal trends in this area.
 
 
 \section*{References}
 \begin{thebibliography}{9}
-\bibitem{daq} Andre~J~M {\it et al.}, {\it Performance of the new DAQ system of the CMS experiment for run-2}
-\bibitem{cms} CMS Collaboration, {\it The CMS experiment at the CERN LHC} JINST 3 S08004 (2008)
+
+\bibitem{cms} CMS Collaboration 2008 {\it The CMS experiment at the CERN LHC} JINST 3 S08004
+\bibitem{daq} Andre~J~M {\it et al} 2016 {\it Performance of the new DAQ system of the CMS experiment for run-2}
+\bibitem{assistance} Andre~J~M {\it et al} 2017 {\it New operator assistance features in the CMS Run Control System}
+\bibitem{daqdoctor} Bauer~G {\it et al} 2014 {\it Automating the CMS DAQ}
 \end{thebibliography}
 
 
